@@ -1,0 +1,28 @@
+.square {
+    border: 0px solid #fff;
+    height: 33.33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s;
+  }
+  
+  .square:hover {
+    background-color: #ff6000;
+    color: white;
+  }
+  
+  .title {
+    font-family: 'Roboto Mono', monospace;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: auto;
+  }
+
+  .smaller-text {
+    font-size: 1.5rem;
+  }
