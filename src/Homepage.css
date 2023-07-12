@@ -9,6 +9,7 @@
     background-color: white;
     color: black;
     transition: background-color 0.3s;
+    user-select: none;
   }
   
   .square:hover {
