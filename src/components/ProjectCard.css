@@ -1,0 +1,60 @@
+.project-card {
+    background-color: #fff;
+    border: 1px solid #000000;
+    padding: 1rem;
+    font-family: 'Roboto Mono', monospace;
+    width: 100%; /* Full width by default */
+    margin-bottom: 1rem; /* Add margin-bottom for spacing between cards */
+  }
+  
+  @media (min-width: 768px) {
+    /* On desktop, set width to 10 columns */
+    .project-card {
+      width: calc(10 * (100% / 12));
+      margin: 0 auto 1rem; /* Center the card and add bottom margin */
+    }
+  }
+  
+  .project-title {
+    font-weight: bold;
+  }
+  
+  .project-description {
+    font-weight: normal;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+
+  .project-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .project-status {
+    color: #000000;
+  }
+  
+  .divider {
+    border: none;
+    border-top: 1px solid #000000;
+    margin: 1rem 0;
+  }
+  
+  .project-description {
+    margin-bottom: 1rem;
+  }
+  
+  .project-info {
+    margin-bottom: 0.5rem;
+  }
+
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }

@@ -1,0 +1,31 @@
+.apply-form {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding: 1rem;
+    font-family: 'Roboto Mono', monospace;
+    width: 100%; /* Full width by default */
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  
+  @media (min-width: 768px) {
+    .apply-form {
+      width: calc(10 * (100% / 12));
+      margin: 25px auto; /* Center the form and add top/bottom margin */
+    }
+  }
+  
+  .form-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .form-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }

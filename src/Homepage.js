@@ -1,6 +1,7 @@
 import React from 'react';
 import './Homepage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 const Homepage = () => {
     const handleSquareClick = (url) => {
@@ -29,12 +30,14 @@ const Homepage = () => {
                     </div>
                 </div>
                 <div className="col-12 col-md-4 p-0">
+                    <Link to="/Projects" style={{ textDecoration: 'none' }}>
                     <div className="square">
                         <h2 className='smaller-text'> 
                     
                         Proyectos 
                         </h2>
                     </div>
+                    </Link>
                 </div>
             </div>
             <div className="row m-0">
