@@ -49,8 +49,18 @@ const Homepage = () => {
                     </div>
                 </div>
                 <div className="col-12 col-md-4 p-0">
-                    <div className="square">
+                <Link to="/form" style={{ textDecoration: 'none' }}>
+                <div className="square">
+                <h2 className='smaller-text'> 
+                    
+                    Aplicar 
+                    </h2>
+
+
                     </div>
+                    
+                    </ Link> 
+                    
                 </div>
             </div>
             <div className="row m-0">
