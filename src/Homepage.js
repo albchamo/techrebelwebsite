@@ -25,15 +25,18 @@ const Homepage = () => {
                     </div>
                 </div>
                 <div className="col-12 col-md-4 p-0">
+                <Link to="/about" style={{ textDecoration: 'none' }}>
                     <div className="square">
-
+                    <h2 className='smaller-text'> 
+                        + Info 
+                        </h2>
                     </div>
+                    </Link>
                 </div>
                 <div className="col-12 col-md-4 p-0">
                     <Link to="/Projects" style={{ textDecoration: 'none' }}>
                     <div className="square">
                         <h2 className='smaller-text'> 
-                    
                         Proyectos 
                         </h2>
                     </div>

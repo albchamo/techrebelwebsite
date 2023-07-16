@@ -11,7 +11,7 @@ const AboutPage = () => {
       <p>
         En Tech Rebel, entendemos que la innovación no es un proceso lineal. <br/>
         Se trata de iterar constantemente, moverse rápidamente y validar ideas antes de comprometer recursos significativos.<br/><br/>
-        Con nuestra experiencia en los departamentos de investigación y desarrollo (I+D) de empresas como Omni y BeInCrypto.com, hemos sido testigos de los desafíos de innovar sin un marco claro.<br/><br/>
+        Con nuestra experiencia en varios departamentos de investigación y desarrollo (I+D) de empresas como Omni y BeInCrypto.com, hemos sido testigos de los desafíos de innovar sin un marco claro.<br/><br/>
         Por eso recomendamos un enfoque de dos vertientes para la I+D, dividiéndola en:<br/><br/>
         Investigación, Ideación y Prototipado:<br/>
         En esta división, operamos en ciclos más cortos, a veces tan breves como una o dos semanas, dependiendo de lo que necesite validación. Empleamos sprint de diseño, que nos permite avanzar rápidamente desde la investigación hasta el prototipado y la validación del usuario.<br/><br/>
