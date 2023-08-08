@@ -1,6 +1,63 @@
 .about-page {
-    background-color: #ff6000;
-    color: #ffffff;
-    padding: 2rem;
-  }
-  
+  background-color: #000000; /* Black background */
+  color: #ffffff;  /* White text */
+  padding: 2rem;
+  font-family: 'Arial Black', sans-serif;
+}
+
+h2, h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #ff6000;  /* Orange border for headings */
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
+ul li {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+ul li:before {
+  content: '•';
+  position: absolute;
+  left: -1rem;
+  top: 0.2rem;
+  color: #ff6000;  /* Orange bullet points */
+  font-size: 1.5rem;
+}
+
+/* ...existing styles... */
+
+.accordion-section {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  border: 1px solid #ff6000;  /* Orange border for each section */
+}
+
+.accordion-section h2, .accordion-section h3 {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background-color: #ff6000;  /* Orange background for headers */
+  color: #000000;  /* Black text for headers */
+}
+
+.accordion-section p {
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #ff6000;  /* Orange separator */
+}
