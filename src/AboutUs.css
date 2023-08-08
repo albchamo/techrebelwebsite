@@ -1,20 +1,21 @@
 .about-page {
   background-color: #000000; /* Black background */
   color: #ffffff;  /* White text */
-  padding: 2rem;
+  padding: 1rem 2rem;
   font-family: 'Arial Black', sans-serif;
 }
 
-h2, h3 {
+.about-page h2, .about-page h3 {
   font-size: 2rem;
   margin-bottom: 1rem;
   border-bottom: 3px solid #ff6000;  /* Orange border for headings */
   padding-bottom: 0.5rem;
 }
 
-h3 {
+.about-page h3 {
   font-size: 1.7rem;
 }
+
 
 p {
   font-size: 1.1rem;

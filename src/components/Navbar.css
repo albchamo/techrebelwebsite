@@ -1,16 +1,17 @@
 .navbar {
-    height: 10vh;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-  }
-  
-  .navbar-title {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-  }
+  height: 10vh;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.navbar-title {
+  font-family: 'Courier New', monospace;
+  font-size: 32px; /* increased size */
+  font-weight: 700; /* bolder weight */
+  letter-spacing: 1.5px; /* added letter-spacing */
+  text-decoration: none;
+  color: #fff;
+}
