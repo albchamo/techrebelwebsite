@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import './Homepage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import ContactModal from './components/ContactModal'; // Import the new component
+import ContactModal from './components/ContactModal';
 
 const Homepage = () => {
     const [modalOpen, setModalOpen] = useState(false);
+
     const handleSquareClick = (url) => {
-        window.open(url, '_blank');
+        try {
+            window.open(url, '_blank');
+        } catch (error) {
+            console.error('Error opening link:', error);
+        }
     };
 
     const handleEmailClick = () => {
         alert('Contact me at alberto@albertochaves.com');
     };
-
     return (
         <div className="container-fluid p-0">
             <div className="row m-0">
