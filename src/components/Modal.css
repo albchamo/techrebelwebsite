@@ -94,4 +94,8 @@
     background-color: #e55900; /* slightly darker orange on hover */
   }
   
-  
+  .close-button {
+    /* ... existing styles ... */
+    padding: 10px; /* increases the clickable area */
+    margin: -10px; /* compensates for the additional padding */
+}

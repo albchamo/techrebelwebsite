@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import './Homepage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import { ContactForm } from './ContactForm'; // Make sure you import the Formspree form component
-import './components/Modal.css';
-
+import ContactModal from './components/ContactModal'; // Import the new component
 
 const Homepage = () => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -40,13 +38,15 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="row m-0">
+                {/* Other squares */}
+            </div>
+            <div className="row m-0">
                 <div className="col-12 col-md-4 p-0">
                     <div className="square"></div>
                 </div>
                 <div className="col-12 col-md-4 p-0">
                     <div className="square">
-                        {/* Add the button to trigger the modal form here */}
-                        <button onClick={() => setModalOpen(true)}>Get in Touch</button>
+                        <button className="get-in-touch-btn" onClick={() => setModalOpen(true)}>Get in Touch</button>
                     </div>
                 </div>
                 <div className="col-12 col-md-4 p-0">
@@ -72,14 +72,7 @@ const Homepage = () => {
             </div>
 
             {/* Modal logic */}
-            {modalOpen && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <span className="close-button" onClick={() => setModalOpen(false)}>&times;</span>
-                        <ContactForm />
-                    </div>
-                </div>
-            )}
+            <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
         </div>
     );
 };
