@@ -1,4 +1,10 @@
 .projects-page {
   background-color: #000;
-  padding-bottom: 20vh;
+  padding: 0 10vw;
+}
+
+@media (max-width: 768px) {
+  .projects-page {
+    padding: 0 5vw;
+  }
 }
