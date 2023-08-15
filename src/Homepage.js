@@ -36,7 +36,7 @@ const Homepage = () => {
                 <div className="col-12 col-md-4 p-0">
                     <Link to="/Projects" style={{ textDecoration: 'none' }}>
                         <div className="square">
-                            <h2 className='smaller-text'>Proyectos</h2>
+                            <h2 className='smaller-text'>Projects</h2>
                         </div>
                     </Link>
                 </div>
