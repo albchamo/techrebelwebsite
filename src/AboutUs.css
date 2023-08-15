@@ -1,37 +1,54 @@
+/* Main about-page styles */
 .about-page {
-  background-color: #000000; /* Black background */
-  color: #ffffff;  /* White text */
-  padding: 1rem 2rem;
-  font-family: 'Arial Black', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 1rem 2rem; /* Vertical padding remains the same, horizontal padding added */
+  font-family: 'Courier New', monospace; 
+}
+
+/* Responsive design: On larger screens, add more horizontal padding */
+@media (min-width: 992px) { /* This breakpoint can be adjusted based on your design needs */
+  .about-page {
+    padding: 1rem 5rem;
+  }
 }
 
 .about-page h2, .about-page h3 {
-  font-size: 2rem;
+  font-size: 2.2rem; 
   margin-bottom: 1rem;
-  border-bottom: 3px solid #ff6000;  /* Orange border for headings */
-  padding-bottom: 0.5rem;
+  font-weight: 700; 
+  text-align: left; 
 }
 
 .about-page h3 {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
 }
 
-
 p {
-  font-size: 1.1rem;
+  font-size: 1.2rem; 
   margin-bottom: 1.5rem;
   line-height: 1.6;
+  font-weight: 300; 
+  text-align: left; 
 }
 
 ul {
   list-style-type: none;
   padding-left: 1rem;
+  text-align: left; 
 }
 
 ul li {
-  font-size: 1.1rem;
+  font-size: 1.2rem; 
   margin-bottom: 0.8rem;
   position: relative;
+  font-weight: 300; 
+  text-align: left; 
+}
+
+/* Bolden text before ':' */
+ul li strong {
+  font-weight: 700; 
 }
 
 ul li:before {
@@ -39,26 +56,6 @@ ul li:before {
   position: absolute;
   left: -1rem;
   top: 0.2rem;
-  color: #ff6000;  /* Orange bullet points */
+  color: #ff6000;
   font-size: 1.5rem;
-}
-
-/* ...existing styles... */
-
-.accordion-section {
-  cursor: pointer;
-  margin-bottom: 1rem;
-  border: 1px solid #ff6000;  /* Orange border for each section */
-}
-
-.accordion-section h2, .accordion-section h3 {
-  margin: 0;
-  padding: 0.5rem 1rem;
-  background-color: #ff6000;  /* Orange background for headers */
-  color: #000000;  /* Black text for headers */
-}
-
-.accordion-section p {
-  padding: 0.5rem 1rem;
-  border-top: 1px solid #ff6000;  /* Orange separator */
 }

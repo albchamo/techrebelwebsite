@@ -29,7 +29,7 @@ const Homepage = () => {
                 <div className="col-12 col-md-4 p-0">
                     <Link to="/about" style={{ textDecoration: 'none' }}>
                         <div className="square">
-                            <h2 className='smaller-text'>+ Info</h2>
+                            <h2 className='smaller-text'>About Us</h2>
                         </div>
                     </Link>
                 </div>

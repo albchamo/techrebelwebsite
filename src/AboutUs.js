@@ -1,76 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './AboutUs.css';
 import Navbar from './components/Navbar';
 import SocialLinks from './components/SocialLinks';
 
 const AboutPage = () => {
-  const [activeSection, setActiveSection] = useState(null);
-
-  const toggleSection = (section) => {
-    if (activeSection === section) {
-      setActiveSection(null);
-    } else {
-      setActiveSection(section);
-    }
-  };
-
   return (
     <div className="about-page">
       <header>
         <Navbar />
       </header>
 
-      <div className="accordion-section" onClick={() => toggleSection('intro')}>
-        <h2>Tech Rebel: Acelerando la Innovación en el Mundo Web3</h2>
-        {activeSection === 'intro' && <p>...</p>} 
-      </div>
+      <h2>Web3 Innovation Catalyst</h2>
 
-      <div className="accordion-section" onClick={() => toggleSection('what')}>
-        <h3>¿Qué es Tech Rebel?</h3>
-        {activeSection === 'what' && (
-          <p>
-            Tech Rebel es una micro agencia especializada en la definición y prototipado de proyectos innovadores, en particular aquellos relacionados con web3 y criptomoneda. A diferencia de las agencias tradicionales de desarrollo, Tech Rebel se centra en las primeras fases del ciclo de vida del producto, desde la conceptualización hasta la creación de prototipos.
-          </p>
-        )}
-      </div>
+      <h3>What is Tech Rebel?</h3>
+      <p>
+        We are a product agency that connects companies to the best teams in latam.
+      </p>
 
-      <div className="accordion-section" onClick={() => toggleSection('why')}>
-        <h3>¿Por qué Tech Rebel?</h3>
-        {activeSection === 'why' && (
-          <p>
-            Muchas empresas, fintechs y bancos tienen una visión clara o una idea de cómo podría ser su solución blockchain, pero carecen de la experiencia o de los recursos internos para traducir esa idea en un producto viable. Tech Rebel llena ese vacío al proporcionar:
-            <ul>
-              <li>Investigación profunda: Entendiendo el mercado, identificando problemas y desarrollando personajes.</li>
-              <li>Ideación y Priorización: Generación de soluciones potenciales y priorización basada en el valor del negocio y la viabilidad técnica.</li>
-              <li>Prototipado: Creación de maquetas, flujos de usuario y, si es necesario, pruebas en plataformas low-code para probar y validar la idea.</li>
-            </ul>
-            Una vez que el prototipo ha sido definido y validado, Tech Rebel conecta a los clientes con equipos de desarrollo autogestionados que tienen la experiencia técnica para hacer realidad estas soluciones. Estos equipos pueden presupuestar y desarrollar un PoC o MVP basado en las especificaciones proporcionadas, permitiendo que las empresas avancen rápidamente con una solución viable sin incurrir en los altos costos asociados con el desarrollo interno o la contratación de equipos a tiempo completo.
-          </p>
-        )}
-      </div>
+      <h3>¿Why Tech Rebel?</h3>
+      <p>
+        In the rapidly evolving digital landscape, traditional businesses recognize the immense potential of the decentralized web (web3) and cryptocurrencies. However, not all are equipped to venture into this uncharted territory. This is where Tech Rebel comes into play. Here's how: 
+        <ul>
+          <li><strong>Discovery:</strong> We don't just jump into solutions. We dive deep into market research, exploring existing solutions, and brainstorming the most viable ones tailored for your needs.</li>
+          <li><strong>Product Definition:</strong> Armed with insights from our discovery phase, we help you sculpt clear and concise PoCs or MVPs. This includes defining clear objectives, user stories, and key metrics for success.</li>
+          <li><strong>Latam's Best Talent:</strong> Our strong network in Latam enables us to match your projects with the region's top developers and tech teams. This not only ensures quality but also cost-effectiveness.</li>
+          <li><strong>Documentation & Handoff:</strong> We ensure that when the project moves to the development stage, there's a seamless transition. Comprehensive documentation ensures external dev teams can pick up where we left off without a hitch.</li>
+        </ul>
+      </p>
 
-      <div className="accordion-section" onClick={() => toggleSection('who')}>
-        <h3>¿Para quién es Tech Rebel?</h3>
-        {activeSection === 'who' && (
-          <p>
-            <ul>
-              <li>Inversores: Que ven el potencial de la tecnología blockchain pero necesitan ayuda para traducir esas ideas en soluciones prácticas.</li>
-              <li>Empresas establecidas: Que desean explorar nuevas ofertas o servicios basados en blockchain, pero cuyos recursos ya están comprometidos o no tienen la experiencia necesaria en cripto.</li>
-              <li>Startups y fintechs: Que desean innovar en el espacio web3 y cripto, pero necesitan guía y definición en sus primeras etapas.</li>
-            </ul>
-          </p>
-        )}
-      </div>
+      <h3>For Whom is Tech Rebel?</h3>
+      <p>
+        Tech Rebel is crafted for:
+        <ul>
+          <li><strong>Visionaries and Pioneers:</strong> For companies and founders who see beyond the present, understanding the promise and potential of web3 and blockchain technologies.</li>
+          <li><strong>Enterprises Seeking an Edge:</strong> For established businesses ready to diversify their digital portfolio, seeking to tap into the world of crypto and decentralized solutions.</li>
+          <li><strong>Startups with Big Dreams:</strong> For new ventures that require the expertise to lay a strong foundation in the web3 space, ensuring their journey starts on the right foot.</li>
+          <li><strong>Tech Enthusiasts with Limited Resources:</strong> Whether it’s a lack of in-house expertise, tech resources, or both, Tech Rebel fills the gap, turning ideas into action.</li>
+          <li><strong>Businesses Eyeing Latam's Talent:</strong> For those who have heard about the tech prowess brewing in Latam and wish to leverage it for their projects.</li>
+          <li><strong>Innovators Needing Guidance:</strong> For teams that have the passion and the idea but need a roadmap to navigate the intricate maze of web3 and crypto.</li>
+        </ul>
+        Tech Rebel is for anyone and everyone who believes in the future of the digital world and wants a trusted partner to lead the way.
+      </p>
 
-      <div className="accordion-section" onClick={() => toggleSection('conclusion')}>
-        <h3>Conclusión</h3>
-        {activeSection === 'conclusion' && (
-          <p>
-            Tech Rebel no es solo una agencia; es un puente hacia el futuro de la innovación web3. Con un equipo experto, una red de desarrolladores autogestionados y una pasión por la definición y creación de prototipos, Tech Rebel es el aliado perfecto para aquellos que buscan explorar, innovar y definir su futuro en el mundo de la criptomoneda y web3.
-            No somos solo consultores, somos tus aliados. En Tech Rebel, combinamos la audacia de la innovación con la elegancia de la estrategia. Si estás buscando liderar en el mundo web3 con estilo y confianza, has encontrado tu hogar.
-          </p>
-        )}
-      </div>
       <SocialLinks />
     </div>
   );
