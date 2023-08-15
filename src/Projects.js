@@ -3,6 +3,7 @@ import axios from 'axios';
 import ProjectCard from './components/ProjectCard';
 import './Projects.css';
 import Navbar from './components/Navbar';
+import SocialLinks from './components/SocialLinks';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -36,6 +37,8 @@ const ProjectsPage = () => {
       {projects.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))}
+
+<SocialLinks />
     </div>
   );
 };
