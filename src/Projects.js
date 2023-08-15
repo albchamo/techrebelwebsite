@@ -14,7 +14,9 @@ const ProjectsPage = () => {
       {projects.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))}
-      <SocialLinks />
+      <div className="social-links-spacing">
+        <SocialLinks />
+      </div>
     </div>
   );
 };
