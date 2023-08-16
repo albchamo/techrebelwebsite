@@ -12,3 +12,9 @@
 .social-links-spacing {
   margin-top: 10rem; /* Adjust this value to create the desired space */
 }
+
+h1.page-title {
+  font-size: 36px;  /* or a size that looks good in relation to the navbar title */
+  font-weight: 700; 
+  /* any other styles you want to apply to these H1s */
+}

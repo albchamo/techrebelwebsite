@@ -10,7 +10,7 @@ const AboutPage = () => {
         <Navbar />
       </header>
 
-      <h2>Web3 Innovation Catalyst</h2>
+      <h1 className="page-title">Web3 Innovation Catalyst</h1>
 
       <h3>What is Tech Rebel?</h3>
       <p>

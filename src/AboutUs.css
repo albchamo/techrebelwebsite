@@ -59,3 +59,8 @@ ul li:before {
   color: #ff6000;
   font-size: 1.5rem;
 }
+h1.page-title {
+  font-size: 36px;  /* or a size that looks good in relation to the navbar title */
+  font-weight: 700; 
+  /* any other styles you want to apply to these H1s */
+}

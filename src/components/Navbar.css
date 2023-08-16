@@ -2,16 +2,17 @@
   height: 10vh;
   background-color: transparent;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;  /* horizontally centers the title */
+  align-items: center;      /* vertically centers the title */
   padding: 0 1rem;
+  width: 100%;  /* ensure the navbar spans the entire width of its parent */
 }
 
 .navbar-title {
   font-family: 'Courier New', monospace;
-  font-size: 32px; /* increased size */
-  font-weight: 700; /* bolder weight */
-  letter-spacing: 1.5px; /* added letter-spacing */
+  font-size: 28px;  /* decrease size */
+  font-weight: 600; /* adjust weight */
+  letter-spacing: 1.5px; 
   text-decoration: none;
   color: #fff;
 }
