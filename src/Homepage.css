@@ -17,6 +17,17 @@
   color: white;
 }
 
+@media (max-width: 767px) {
+  .square.rectangle {
+    height: 11.11vh;
+  }
+  
+  .square.rectangle + .square.rectangle {
+    margin-top: 5px;
+  }
+  
+}
+
 .title {
   font-family: 'Courier New', monospace;
   text-align: left;

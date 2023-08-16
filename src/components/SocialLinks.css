@@ -1,36 +1,40 @@
-.square {
-    border: 5px solid black; /* Thicker borders */
-    height: 33.33vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 10px;
-    background-color: white;
-    color: black;
-    user-select: none;
-    font-family: 'Courier New', monospace; /* Changed to system font */
+.social-square {
+  border: 5px solid black;
+  height: 33.33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  user-select: none;
+  font-family: 'Courier New', monospace;
+}
+
+.social-square:hover {
+  background-color: #ff6000;
+  color: white;
+}
+
+.title {
+  font-family: 'Courier New', monospace;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: auto;
+  font-weight: bold;
+}
+
+.smaller-text {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-family: 'Arial Black', sans-serif;
+  text-align: right;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .social-square {
+      height: 11.11vh;
   }
-  
-  .square:hover {
-    background-color: #ff6000; /* Restored the hover color */
-    color: white;
-  }
-  
-  .title {
-    font-family: 'Courier New', monospace; /* Changed to system font */
-    text-align: left; /* Keeping the title left-aligned */
-    margin-top: 0;
-    margin-bottom: auto;
-    font-weight: bold;
-  }
-  
-  .smaller-text {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    font-family: 'Arial Black', sans-serif; /* Changed to Arial Black for contrast */
-    text-align: right; /* Right-align only the smaller text */
-    width: 100%; /* This ensures the text takes up full width of the square for proper alignment */
-  }
-  
-  
+}

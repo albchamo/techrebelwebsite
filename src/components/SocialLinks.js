@@ -13,17 +13,17 @@ const SocialLinks = () => {
     return (
         <div className="row m-0">
             <div className="col-12 col-md-4 p-0">
-                <div className="square" onClick={() => handleSquareClick('https://twitter.com/TechRebelWorld')}>
+                <div className="social-square" onClick={() => handleSquareClick('https://twitter.com/TechRebelWorld')}>
                     <h2 className='smaller-text'>Twitter</h2>
                 </div>
             </div>
             <div className="col-12 col-md-4 p-0">
-                <div className="square" onClick={handleEmailClick}>
+                <div className="social-square" onClick={handleEmailClick}>
                     <h2 className='smaller-text'>Email</h2>
                 </div>
             </div>
             <div className="col-12 col-md-4 p-0">
-                <div className="square" onClick={() => handleSquareClick('https://www.linkedin.com/in/alberto-chaves-costarica/')}>
+                <div className="social-square" onClick={() => handleSquareClick('https://www.linkedin.com/in/alberto-chaves-costarica/')}>
                     <h2 className='smaller-text'>Linkedin</h2>
                 </div>
             </div>
