@@ -9,7 +9,11 @@ const ContactModal = ({ isOpen, onClose }) => {
         }
     }
 
-    if (!isOpen) return null;
+    if (!isOpen) {
+        console.log("ContactModal is closed");
+        return null;
+    }
+    console.log("ContactModal is open");
 
     return (
         <div className="modal" onClick={handleCloseModal}>

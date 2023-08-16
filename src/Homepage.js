@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import './Homepage.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import ContactModal from './components/ContactModal';
-import SocialLinks from './components/SocialLinks';
+import { ContactForm } from './ContactForm'; // Make sure you import the Formspree form component
+import './components/Modal.css';
+import SocialLinks from "./components/SocialLinks"
+
 
 const Homepage = () => {
     const [modalOpen, setModalOpen] = useState(false);
+    const handleSquareClick = (url) => {
+        window.open(url, '_blank');
+    };
 
+    const handleEmailClick = () => {
+        alert('Contact me at alberto@albertochaves.com');
+    };
 
     return (
         <div className="container-fluid p-0">
@@ -46,21 +55,30 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="row m-0">
-                <div className="d-none d-md-block col-md-4 p-0">
-                    <div className="square"></div> 
+                <div className="col-12 col-md-4 p-0">
+                    <div className="square"></div>
                 </div>
                 <div className="col-12 col-md-4 p-0">
                     <div className="square">
+                        {/* Add the button to trigger the modal form here */}
                         <button className="get-in-touch-btn" onClick={() => setModalOpen(true)}>Get in Touch</button>
                     </div>
                 </div>
-                <div className=" d-md-block col-md-4 p-0">
+                <div className="col-12 col-md-4 p-0">
                     <div className="square"></div> 
                 </div>
             </div>
             <SocialLinks />
 
-            <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+            {/* Modal logic */}
+            {modalOpen && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close-button" onClick={() => setModalOpen(false)}>&times;</span>
+                        <ContactForm />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

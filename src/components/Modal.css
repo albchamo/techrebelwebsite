@@ -1,18 +1,19 @@
-/* 
-  General modal styling
-*/
 .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 0, 0, 0.7);  /* Using a bright red color for testing */
+  z-index: 9999 ;  /* Using a high z-index value */
+  overflow: visible;  /* Ensuring that there's no hidden overflow */
+}
+
+/* ... [rest of the modal CSS remains the same] ... */
+
   
   /* 
     Modal content styling

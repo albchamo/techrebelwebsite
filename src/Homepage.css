@@ -12,20 +12,20 @@
   font-family: 'Courier New', monospace;
 }
 
-.square:hover {
-  background-color: #ff6000;
-  color: white;
+.square.rectangle {
+  height: 11.11vh; /* 33.33vh (square height) divided by 3 */
 }
 
+/* Add a small gap between rectangles for aesthetics */
 @media (max-width: 767px) {
-  .square.rectangle {
-    height: 11.11vh;
-  }
-  
   .square.rectangle + .square.rectangle {
     margin-top: 5px;
   }
-  
+}
+
+.square:hover {
+  background-color: #ff6000;
+  color: white;
 }
 
 .title {

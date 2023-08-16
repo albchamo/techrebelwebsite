@@ -19,14 +19,14 @@ const AboutPage = () => {
 
       <h3>¿Why Tech Rebel?</h3>
       <p>
-        In the rapidly evolving digital landscape, traditional businesses recognize the immense potential of the decentralized web (web3) and cryptocurrencies. However, not all are equipped to venture into this uncharted territory. This is where Tech Rebel comes into play. Here's how: 
+        In the rapidly evolving digital landscape, traditional businesses recognize the immense potential of the decentralized web (web3) and cryptocurrencies. However, not all are equipped to venture into this uncharted territory. This is where Tech Rebel comes into play. Here's how: </p>
         <ul>
           <li><strong>Discovery:</strong> We don't just jump into solutions. We dive deep into market research, exploring existing solutions, and brainstorming the most viable ones tailored for your needs.</li>
           <li><strong>Product Definition:</strong> Armed with insights from our discovery phase, we help you sculpt clear and concise PoCs or MVPs. This includes defining clear objectives, user stories, and key metrics for success.</li>
           <li><strong>Latam's Best Talent:</strong> Our strong network in Latam enables us to match your projects with the region's top developers and tech teams. This not only ensures quality but also cost-effectiveness.</li>
           <li><strong>Documentation & Handoff:</strong> We ensure that when the project moves to the development stage, there's a seamless transition. Comprehensive documentation ensures external dev teams can pick up where we left off without a hitch.</li>
         </ul>
-      </p>
+      
 
       <h3>For Whom is Tech Rebel?</h3>
       <p>
