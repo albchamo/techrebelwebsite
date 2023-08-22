@@ -1,0 +1,57 @@
+/* Global Styles */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+/* Blog Posts Grid */
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual Blog Post */
+.blog-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+}
+
+.blog-title {
+    grid-column: 1 / -1;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: #FF6000;
+    border-radius: 10px;
+}
+
+.blog-description, .blog-author {
+    padding: 1rem;
+    background-color: #FF6000;
+    border-radius: 10px;
+}
+
+/* Hover Effects */
+.blog-title:hover, .blog-description:hover, .blog-author:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.blog-container a {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Inherits the color from its parent */
+  }
+  
+  .blog-container a:hover {
+    text-decoration: underline; /* Adds underline on hover for better UX */
+  }

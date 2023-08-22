@@ -6,6 +6,8 @@
   align-items: center;      /* vertically centers the title */
   padding: 0 1rem;
   width: 100%;  /* ensure the navbar spans the entire width of its parent */
+  z-index: 1000; /* This ensures the navbar is always on top */
+    position: relative; /* This is required for z-index to work */
 }
 
 .navbar-title {
