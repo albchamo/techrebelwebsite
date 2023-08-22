@@ -1,9 +1,9 @@
 import React from 'react';
-import ProjectCard from './components/ProjectCard';
+import ProjectCard from '../components/ProjectCard';
 import './Projects.css';
-import Navbar from './components/Navbar';
-import SocialLinks from './components/SocialLinks';
-import projects from './projectsData';  // <-- Importing the projects data
+import Navbar from '../components/Navbar';
+import SocialLinks from '../components/SocialLinks';
+import projects from '../components/projectsData';  // <-- Importing the projects data
 
 const ProjectsPage = () => {
   return (

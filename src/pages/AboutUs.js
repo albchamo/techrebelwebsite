@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './AboutUs.css';
-import Navbar from './components/Navbar';
-import SocialLinks from './components/SocialLinks';
-import { ContactForm } from './ContactForm';
+import Navbar from '../components/Navbar';
+import SocialLinks from '../components/SocialLinks';
+import { ContactForm } from '../components/ContactForm';
 
 const AboutUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
