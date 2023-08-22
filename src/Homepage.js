@@ -61,7 +61,7 @@ const Homepage = () => {
                 <div className="col-12 col-md-4 p-0">
                     <div className="square">
                         {/* Add the button to trigger the modal form here */}
-                        <button className="get-in-touch-btn" onClick={() => setModalOpen(true)}>Get in Touch</button>
+                        <button className="homepage-btn" onClick={() => setModalOpen(true)}>Get in Touch</button>
                     </div>
                 </div>
                 <div className="col-12 col-md-4 p-0">

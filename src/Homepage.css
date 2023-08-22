@@ -44,25 +44,25 @@
   width: 100%;
 }
 
-.get-in-touch-btn {
+/* Updated Homepage Button Design */
+.homepage-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: #ffffff;
-  border: 4px solid #000000;
+  background-color: #ff6000; /* Orange background */
+  border: 2px black;
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
   width: 80%;
   margin: 0 auto;
-  padding: 10px 20px;
-  display: block;
+  padding: 10px 10px;
+  color: #000000; /* Black text */
 }
 
-.get-in-touch-btn:hover {
-  background-color: #f0f0f0;
+.homepage-btn:hover {
+  background-color: #e55900; /* Slightly darker orange on hover */
   transform: translateY(-5px);
-  transition: transform 0.2s;
 }

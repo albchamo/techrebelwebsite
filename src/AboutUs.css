@@ -49,6 +49,7 @@ ul li {
 /* Bolden text before ':' */
 ul li strong {
   font-weight: 700; 
+  color: #ff6000;
 }
 
 ul li:before {
@@ -62,5 +63,27 @@ ul li:before {
 h1.page-title {
   font-size: 36px;  /* or a size that looks good in relation to the navbar title */
   font-weight: 700; 
+  margin-bottom: 2rem;
   /* any other styles you want to apply to these H1s */
+}
+
+/* Button Design */
+.get-in-touch-btn {
+  display: block; /* Makes the button a block element */
+  width: 80%; /* Width of the button */
+  max-width: 300px; /* Maximum width */
+  margin: 40px auto; /* Centers the button and adds margin on top and bottom */
+  padding: 15px 20px; /* Padding inside the button */
+  background-color: #ff6000; /* Background color (you can change this) */
+  color: #ffffff; /* Text color */
+  font-size: 1.5rem; /* Font size */
+  font-weight: 600; /* Font weight */
+  border: none; /* Removes any default borders */
+  cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for the button */
+.get-in-touch-btn:hover {
+  background-color: #e55900; /* Slightly darker shade for hover */
 }

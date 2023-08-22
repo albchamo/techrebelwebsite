@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AboutUs.css';
 import Navbar from './components/Navbar';
 import SocialLinks from './components/SocialLinks';
+import { ContactForm } from './ContactForm';
 
-const AboutPage = () => {
+const AboutUs = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <div className="about-page">
       <header>
@@ -12,14 +15,13 @@ const AboutPage = () => {
 
       <h1 className="page-title">Web3 Innovation Catalyst</h1>
 
-      <h3>What is Tech Rebel?</h3>
+      <h3>Who We Are</h3>
       <p>
-        We are a product agency that connects companies to the best teams in latam.
-      </p>
+      We are a product agency that works with tech teams in Latin America.      </p>
 
-      <h3>¿Why Tech Rebel?</h3>
+      <h3>Why Choose Tech Rebel?</h3>
       <p>
-        In the rapidly evolving digital landscape, traditional businesses recognize the immense potential of the decentralized web (web3) and cryptocurrencies. However, not all are equipped to venture into this uncharted territory. This is where Tech Rebel comes into play. Here's how: </p>
+      In the rapidly evolving digital landscape, traditional businesses recognize the immense potential of Web3 and cryptocurrencies. However, not all are equipped to venture into this uncharted territory. This is where Tech Rebel comes into play. Here's how:  </p>
         <ul>
           <li><strong>Discovery:</strong> We don't just jump into solutions. We dive deep into market research, exploring existing solutions, and brainstorming the most viable ones tailored for your needs.</li>
           <li><strong>Product Definition:</strong> Armed with insights from our discovery phase, we help you sculpt clear and concise PoCs or MVPs. This includes defining clear objectives, user stories, and key metrics for success.</li>
@@ -28,9 +30,9 @@ const AboutPage = () => {
         </ul>
       
 
-      <h3>For Whom is Tech Rebel?</h3>
+      <h3>Who Can Benefit from Tech Rebel?</h3>
       <p>
-        Tech Rebel is crafted for:
+      We serve:
         <ul>
           <li><strong>Visionaries and Pioneers:</strong> For companies and founders who see beyond the present, understanding the promise and potential of web3 and blockchain technologies.</li>
           <li><strong>Enterprises Seeking an Edge:</strong> For established businesses ready to diversify their digital portfolio, seeking to tap into the world of crypto and decentralized solutions.</li>
@@ -42,9 +44,21 @@ const AboutPage = () => {
         Tech Rebel is for anyone and everyone who believes in the future of the digital world and wants a trusted partner to lead the way.
       </p>
 
+      {/* Button to trigger the modal */}
+      <button className="get-in-touch-btn" onClick={() => setModalOpen(true)}>Contact Us</button>
+
+{/* Modal logic */}
+{modalOpen && (
+    <div className="modal">
+        <div className="modal-content">
+            <span className="close-button" onClick={() => setModalOpen(false)}>&times;</span>
+            <ContactForm />
+        </div>
+    </div>
+)}
       <SocialLinks />
     </div>
   );
 };
 
-export default AboutPage;
+export default AboutUs;
