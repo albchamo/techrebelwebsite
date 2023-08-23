@@ -1,0 +1,56 @@
+.project-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #FFF;
+    color: #000;
+    border-radius: 10px;
+}
+
+.project-title {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #FF6000;
+}
+
+.project-details {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.project-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.project-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.related-projects {
+    border-top: 2px solid #FF6000;
+    padding-top: 20px;
+}
+
+.related-project {
+    margin-bottom: 20px;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 10px;
+    color: #FFF;
+}
+
+.related-project h2 {
+    color: #FF6000;
+}
+
+.related-project-link {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,0 +1,18 @@
+.brutalist-back-button {
+    background-color: #000; /* Black background */
+    color: #FFF; /* White text */
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Adjusted from right to left */
+    border: 3px solid #FFF; /* White border */
+}
+
+.brutalist-back-button:hover {
+    background-color: #FF6000; /* Change to your signature orange on hover */
+}

@@ -5,6 +5,8 @@ import Projects from './pages/Projects';
 import AboutUs from './pages/AboutUs';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import SingleProjectPage from './pages/SingleProjectPage';
+
 
 
 const App = () => {
@@ -16,6 +18,7 @@ const App = () => {
         <Route path="/about" element={<AboutUs />} /> 
         <Route path="/blog" element={<BlogPage />} /> 
         <Route path="/post/:id" element={<BlogPostPage />} />
+        <Route path="/project/:id" element={<SingleProjectPage />} />
       </Routes>
     </Router>
   );

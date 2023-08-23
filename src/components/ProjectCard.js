@@ -1,31 +1,28 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProjectCard.css';
 
-const ProjectCard = ({ project }) => {
-  console.log("Project data in ProjectCard:", project);
-  if (!project) return null;  // Return early if project is undefined
+const ProjectCard = ({ project, id }) => {
+  const navigate = useNavigate();
 
-  const { name, briefDescription, stakeholder, timeframe, techStack } = project;
+  if (!project) return null;
 
+  const { name, briefDescription, stakeholder } = project;
+
+  const handleCardClick = () => {
+    navigate(`/project/${id}`);
+  };
 
   return (
-    <div className="project-card">
+    <div className="project-card" onClick={handleCardClick}>
       <div className="project-header">
         <h2 className="project-name">{name}</h2>
+        <span className="project-status">{stakeholder}</span>
       </div>
       <hr className="divider" />
       <div className="project-content">
-        <p className="project-info">
-          <strong>Stakeholder:</strong> {stakeholder}
-        </p>
-        <p className="project-info">
-          <strong>Timeframe:</strong> {timeframe}
-        </p>
-        <p className="project-info">
-          <strong>Tech Stack:</strong> {techStack}
-        </p>
+        <p className="project-description">{briefDescription}</p>
       </div>
-      <p className="project-description">{briefDescription}</p>
     </div>
   );
 };
