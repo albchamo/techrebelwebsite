@@ -10,9 +10,9 @@ body {
 /* Blog Posts Grid */
 .blog-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    padding: 2rem;
+    grid-template-columns: repeat(3, 1fr); /* Making the grid more irregular */
+    gap: 4rem; /* Increasing the gap for more aggressive whitespace */
+    padding: 4rem; /* Increasing padding for more whitespace */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -20,24 +20,24 @@ body {
 /* Individual Blog Post */
 .blog-post {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto; /* Only one row now since we removed the description */
     gap: 1rem;
+    border: 2px solid #FF6000;
 }
 
 .blog-title {
     grid-column: 1 / -1;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     padding: 1rem;
     background-color: #FF6000;
-    border-radius: 10px;
 }
 
-.blog-description, .blog-author {
+.blog-author {
     padding: 1rem;
     background-color: #FF6000;
-    border-radius: 10px;
 }
 
 /* Hover Effects */
@@ -50,8 +50,48 @@ body {
 .blog-container a {
     text-decoration: none; /* Removes the underline */
     color: inherit; /* Inherits the color from its parent */
-  }
+}
   
-  .blog-container a:hover {
+.blog-container a:hover {
     text-decoration: underline; /* Adds underline on hover for better UX */
-  }
+}
+
+/* ... [existing styles] */
+
+.author-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.author-filter select {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* ... [existing styles] */
+
+.author-filter select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: transparent; /* Make the background transparent */
+    border: 2px solid white; /* Add a white border */
+    color: white; /* Make the text color white */
+    appearance: none; /* Remove default appearance */
+    -webkit-appearance: none; /* Remove default appearance for Webkit browsers */
+    -moz-appearance: none; /* Remove default appearance for Firefox */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+}
+
+.author-filter select:focus {
+    outline: none; /* Remove the default focus outline */
+    border-color: black; /* Change border color to black on focus */
+}
+
+/* Style for the dropdown options when open */
+.author-filter select option {
+    background-color: black; /* Make the background black */
+    color: white; /* Make the text color white */
+}

@@ -1,20 +1,19 @@
-// Importing necessary libraries and components
 import React, { useState, useEffect } from 'react';
 import client from '../services/contenful';
 import './BlogPage.css';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar'; // Assuming you have this component
 
-// BlogPage component to display a list of blog posts
 function BlogPage() {
-  // State variables for posts data and loading status
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedAuthor, setSelectedAuthor] = useState(''); // For filtering by author
 
-  // Fetching all blog post entries from Contentful
   useEffect(() => {
     client.getEntries({ content_type: 'pageBlogPost' })
       .then((response) => {
-        setPosts(response.items);
+        const sortedPosts = response.items.sort((a, b) => new Date(b.sys.createdAt) - new Date(a.sys.createdAt)); // Sorting by date
+        setPosts(sortedPosts);
         setLoading(false);
       })
       .catch(error => {
@@ -23,22 +22,30 @@ function BlogPage() {
       });
   }, []);
 
-  // Display a loading message while fetching data
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const handleAuthorChange = (event) => {
+    setSelectedAuthor(event.target.value);
+  };
 
-  // Render the list of blog posts
+  const filteredPosts = selectedAuthor ? posts.filter(post => post.fields.author.fields.name === selectedAuthor) : posts;
+
   return (
     <div>
-      <h1>Blog Posts</h1>
+      <Navbar />
+      <div className="author-filter">
+        <label>Filter by Author:</label>
+        <select onChange={handleAuthorChange}>
+          <option value="">All Authors</option>
+          {/* Assuming each post has an author and each author has a unique name */}
+          {[...new Set(posts.map(post => post.fields.author.fields.name))].map(author => (
+            <option key={author} value={author}>{author}</option>
+          ))}
+        </select>
+      </div>
       <div className="blog-container">
-        {posts.map(post => (
-          // Link to the detailed blog post page
+        {filteredPosts.map(post => (
           <Link to={`/post/${post.sys.id}`} key={post.sys.id}>
             <div className="blog-post">
               <div className="blog-title">{post.fields.title}</div>
-              <div className="blog-description">{post.fields.shortDescription}</div>
               <div className="blog-author">{post.fields.author.fields.name}</div>
             </div>
           </Link>
@@ -48,5 +55,4 @@ function BlogPage() {
   );
 }
 
-// Exporting the BlogPage component for use in other parts of the application
 export default BlogPage;
