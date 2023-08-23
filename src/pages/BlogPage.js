@@ -3,6 +3,7 @@ import client from '../services/contenful';
 import './BlogPage.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar'; // Assuming you have this component
+import BackButton from '../components/BackButton';
 
 function BlogPage() {
   const [posts, setPosts] = useState([]);
@@ -51,6 +52,7 @@ function BlogPage() {
           </Link>
         ))}
       </div>
+      <BackButton/> 
     </div>
   );
 }
