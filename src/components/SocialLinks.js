@@ -1,5 +1,7 @@
 import React from 'react';
 import './SocialLinks.css';
+import { Link } from 'react-router-dom';
+
 
 const SocialLinks = () => {
     const handleSquareClick = (url) => {
@@ -18,9 +20,11 @@ const SocialLinks = () => {
                 </div>
             </div>
             <div className="col-12 col-md-4 p-0">
-                <div className="social-square" onClick={handleEmailClick}>
-                    <h2 className='smaller-text'>Email</h2>
+            <Link to="/blog" style={{ textDecoration: 'none' }}>
+                <div className="social-square" >
+                    <h2 className='smaller-text'>Blog</h2>
                 </div>
+                </Link >
             </div>
             <div className="col-12 col-md-4 p-0">
                 <div className="social-square" onClick={() => handleSquareClick('https://www.linkedin.com/in/alberto-chaves-costarica/')}>

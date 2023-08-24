@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import client from '../services/contenful';
-import './BlogPage.css';
+import './BlogPage.css'; // Consider using CSS modules or styled-components for consistent styling
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar'; // Assuming you have this component
+import Navbar from '../components/Navbar';
 import BackButton from '../components/BackButton';
+import { Web3Button } from '@web3modal/react';
+import { useWeb3Modal } from "@web3modal/react";
 
 function BlogPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedAuthor, setSelectedAuthor] = useState(''); // For filtering by author
+  const [selectedAuthor, setSelectedAuthor] = useState('');
+  const { account } = useWeb3Modal();
+  const buttonText = account ? `${account.slice(0, 6)}...${account.slice(-4)}` : "Connect Wallet";
 
+  // Fetching blog posts from Contentful
   useEffect(() => {
     client.getEntries({ content_type: 'pageBlogPost' })
       .then((response) => {
-        const sortedPosts = response.items.sort((a, b) => new Date(b.sys.createdAt) - new Date(a.sys.createdAt)); // Sorting by date
+        const sortedPosts = response.items.sort((a, b) => new Date(b.sys.createdAt) - new Date(a.sys.createdAt));
         setPosts(sortedPosts);
         setLoading(false);
       })
       .catch(error => {
         console.error("Error fetching data from Contentful:", error);
         setLoading(false);
+        // Consider showing a user-friendly error message here
       });
   }, []);
 
@@ -36,7 +42,6 @@ function BlogPage() {
         <label>Filter by Author:</label>
         <select onChange={handleAuthorChange}>
           <option value="">All Authors</option>
-          {/* Assuming each post has an author and each author has a unique name */}
           {[...new Set(posts.map(post => post.fields.author.fields.name))].map(author => (
             <option key={author} value={author}>{author}</option>
           ))}

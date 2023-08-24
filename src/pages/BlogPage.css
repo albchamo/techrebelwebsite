@@ -109,3 +109,24 @@ body {
 body, html {
     overflow-x: hidden;
 }
+
+/* WalletConnectButton.css */
+
+.brutalist-wallet-button {
+    background-color: #000; /* Black background */
+    color: #FFF; /* White text */
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: 3px solid #FFF; /* White border */
+}
+
+.brutalist-wallet-button:hover {
+    background-color: #FF6000; /* Change to your signature orange on hover */
+}
