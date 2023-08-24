@@ -5,10 +5,13 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import './SingleProjectPage.css';
 import Navbar from "../components/Navbar";
 import BackButton from '../components/BackButton';
+import ContactModal from '../components/ContactModal';
+
 
 const SingleProjectPage = () => {
   const [project, setProject] = useState(null);
   const { id } = useParams(); // Get the project ID from the URL
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     client.getEntry(id)
@@ -50,6 +53,14 @@ const SingleProjectPage = () => {
       )}
     </div>
     <BackButton text="Back" onClick={() => window.history.back()} />
+    <div className="button-container">
+    <button className="brutalist-apply-button" onClick={() => setIsModalOpen(true)} type="button">
+    Apply
+    </button>
+
+    </div>
+    
+    <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
