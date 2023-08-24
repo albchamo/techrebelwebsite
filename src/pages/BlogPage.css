@@ -10,11 +10,18 @@ body {
 /* Blog Posts Grid */
 .blog-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Making the grid more irregular */
-    gap: 4rem; /* Increasing the gap for more aggressive whitespace */
-    padding: 4rem; /* Increasing padding for more whitespace */
+    grid-template-columns: 1fr; /* By default, one post per row */
+    gap: 4rem;
+    padding: 4rem;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* Media query for larger screens (e.g., tablets and desktops) */
+@media (min-width: 768px) {
+    .blog-container {
+        grid-template-columns: repeat(3, 1fr); /* On larger screens, show 3 posts per row */
+    }
 }
 
 /* Individual Blog Post */
@@ -94,4 +101,11 @@ body {
 .author-filter select option {
     background-color: black; /* Make the background black */
     color: white; /* Make the text color white */
+}
+.blog-author {
+    text-align: right;
+}
+
+body, html {
+    overflow-x: hidden;
 }

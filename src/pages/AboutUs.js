@@ -3,6 +3,7 @@ import './AboutUs.css';
 import Navbar from '../components/Navbar';
 import SocialLinks from '../components/SocialLinks';
 import { ContactForm } from '../components/ContactForm';
+import BackButton from '../components/BackButton';
 
 const AboutUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -57,6 +58,8 @@ const AboutUs = () => {
     </div>
 )}
       <SocialLinks />
+      <BackButton text="Back" onClick={() => window.history.back()} />
+
     </div>
   );
 };

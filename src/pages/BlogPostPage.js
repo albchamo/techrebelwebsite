@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { Link } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 
 // BlogPostPage component to display individual blog posts
 function BlogPostPage() {
@@ -85,6 +86,7 @@ function BlogPostPage() {
                         ))}
                     </div>
                 )}
+                <BackButton text="Back" onClick={() => window.history.back()} />
             </div>
         </>
     );

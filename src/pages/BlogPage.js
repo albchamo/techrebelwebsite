@@ -52,7 +52,7 @@ function BlogPage() {
           </Link>
         ))}
       </div>
-      <BackButton/> 
+      <BackButton text="Back" onClick={() => window.history.back()} />
     </div>
   );
 }
