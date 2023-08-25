@@ -15,6 +15,7 @@ const ProjectCard = ({ project, id }) => {
 
   return (
     <div className="project-card" onClick={handleCardClick}>
+      
       <div className="project-header">
         <h2 className="project-name">{name}</h2>
         <span className="project-status">{stakeholder}</span>
@@ -23,7 +24,9 @@ const ProjectCard = ({ project, id }) => {
       <div className="project-content">
         <p className="project-description">{briefDescription}</p>
       </div>
+      <div className="project-cta">Click to Learn More</div>
     </div>
+    
   );
 };
 
