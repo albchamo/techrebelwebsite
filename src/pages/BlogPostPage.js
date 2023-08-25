@@ -36,9 +36,9 @@ function BlogPostPage() {
 
 
 // Determine which image to use for sharing
-    const shareImage = post.seoFields?.shareImages?.length > 0 
-    ? post.seoFields.shareImages[0].fields.file.url 
-    : post.featuredImage.fields.file.url;
+const shareImage = post && post.seoFields?.shareImages?.length > 0 
+? post.seoFields.shareImages[0].fields.file.url 
+: post?.featuredImage?.fields?.file?.url;
 
 
     // Custom renderer for embedded entries in rich text, specifically for images
@@ -66,23 +66,17 @@ function BlogPostPage() {
     // Render the blog post content
     return (
         <>
-        <Helmet>
-            <title>{post.title}</title>
-            <meta name="description" content={post.shortDescription} />
-            <meta property="og:title" content={post.title} />
-            <meta property="og:description" content={post.shortDescription} />
-            {/* Meta tags for Twitter Cards */}
-            <meta name="twitter:card" content="summary_large_image" />
+        {shareImage && (
+            <Helmet>
+                {/* Meta tags for Twitter Cards */}
+                <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:image" content={shareImage} />
 
                 {/* Meta tags for Facebook Open Graph */}
                 <meta property="og:image" content={shareImage} />
-                <meta property="og:image:alt" content={post.title} />
-
-            <meta property="og:url" content={window.location.href} />
-            <meta name="twitter:card" content="summary_large_image" />
-            {/* Add other meta tags as needed */}
-        </Helmet>
+                <meta property="og:image:alt" content={post?.title} />
+            </Helmet>
+        )}
             <Navbar />
             <div className="post-container">
                 <h1 className="post-title">{post.title}</h1>
