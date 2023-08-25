@@ -4,16 +4,17 @@ import './BlogPage.css'; // Consider using CSS modules or styled-components for 
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import BackButton from '../components/BackButton';
+import { useLocale } from '../components/LocaleContext';
 
 
 function BlogPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedAuthor, setSelectedAuthor] = useState('');
+  const { locale } = useLocale();
 
-  // Fetching blog posts from Contentful
   useEffect(() => {
-    client.getEntries({ content_type: 'pageBlogPost' })
+    client.getEntries({ content_type: 'pageBlogPost', locale: locale })
       .then((response) => {
         const sortedPosts = response.items.sort((a, b) => new Date(b.sys.createdAt) - new Date(a.sys.createdAt));
         setPosts(sortedPosts);
@@ -22,9 +23,8 @@ function BlogPage() {
       .catch(error => {
         console.error("Error fetching data from Contentful:", error);
         setLoading(false);
-        // Consider showing a user-friendly error message here
       });
-  }, []);
+  }, [locale]);
 
   const handleAuthorChange = (event) => {
     setSelectedAuthor(event.target.value);

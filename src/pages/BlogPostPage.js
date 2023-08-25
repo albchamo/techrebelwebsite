@@ -8,19 +8,16 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types';
 import { Link } from 'react-router-dom';
 import BackButton from '../components/BackButton';
+import { useLocale } from '../components/LocaleContext'; // Import the useLocale hook
 
-// BlogPostPage component to display individual blog posts
 function BlogPostPage() {
-    // Extracting post ID from the URL
     const { id } = useParams();
-
-    // State variables for post data and loading status
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { locale } = useLocale(); // Use the locale from the context
 
-    // Fetching post data from Contentful using the provided ID
     useEffect(() => {
-        client.getEntry(id)
+        client.getEntry(id, { locale: locale }) // Include the locale parameter
             .then((response) => {
                 setPost(response.fields);
                 setLoading(false);
@@ -29,7 +26,7 @@ function BlogPostPage() {
                 console.error("Error fetching data from Contentful:", error);
                 setLoading(false);
             });
-    }, [id]);
+    }, [id, locale]);
 
     // Scroll to top when the post ID changes
     useEffect(() => {
