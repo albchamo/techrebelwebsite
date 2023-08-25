@@ -6,22 +6,23 @@ import './SingleProjectPage.css';
 import Navbar from "../components/Navbar";
 import BackButton from '../components/BackButton';
 import ContactModal from '../components/ContactModal';
-
+import { useLocale } from '../components/LocaleContext'; // Import the useLocale hook
 
 const SingleProjectPage = () => {
   const [project, setProject] = useState(null);
   const { id } = useParams(); // Get the project ID from the URL
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { locale } = useLocale(); // Use the locale from the context
 
   useEffect(() => {
-    client.getEntry(id)
+    client.getEntry(id, { locale: locale }) // Include the locale parameter
       .then((response) => {
         setProject(response.fields);
       })
       .catch(error => {
         console.error("Error fetching project details from Contentful:", error);
       });
-  }, [id]);
+  }, [id, locale]); // Add locale to the dependency array
 
   if (!project) {
     return <div>Loading...</div>;

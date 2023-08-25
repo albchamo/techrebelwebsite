@@ -4,12 +4,14 @@ import './Projects.css';
 import Navbar from '../components/Navbar';
 import SocialLinks from '../components/SocialLinks';
 import client from '../services/contenful';
+import { useLocale } from '../components/LocaleContext';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
+  const { locale } = useLocale();
 
   useEffect(() => {
-    client.getEntries({ content_type: 'project' })
+    client.getEntries({ content_type: 'project', locale: locale })
       .then((response) => {
         console.log("Fetched data from Contentful:", response.items);
         setProjects(response.items);
@@ -17,7 +19,7 @@ const ProjectsPage = () => {
       .catch(error => {
         console.error("Error fetching data from Contentful:", error);
       });
-  }, []);
+  }, [locale]);
 
   return (
     <div className="projects-page">
@@ -26,8 +28,8 @@ const ProjectsPage = () => {
       </header>
       
       {projects.map((project) => (
-  project.fields ? <ProjectCard key={project.sys.id} id={project.sys.id} project={project.fields} /> : null
-))}
+        project.fields ? <ProjectCard key={project.sys.id} id={project.sys.id} project={project.fields} /> : null
+      ))}
       
       <div className="social-links-spacing">
         <SocialLinks />

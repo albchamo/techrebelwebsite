@@ -18,3 +18,19 @@
   text-decoration: none;
   color: #fff;
 }
+
+/* Navbar.css */
+.locale-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 15px;
+  transition: color 0.3s;
+  color: #fff;
+  margin-left: auto; /* This will push the button to the right end of the navbar */
+}
+
+.locale-toggle:hover {
+  color: #FF6000; /* Your signature orange for hover effect */
+}
