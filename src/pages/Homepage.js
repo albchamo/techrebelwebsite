@@ -56,16 +56,20 @@ const Homepage = () => {
             </div>
             <div className="row m-0">
                 <div className="col-12 col-md-4 p-0">
-                    <div className="square"></div>
+                    <div className="square empty-square hidden-text">
+                        TECH
+                    </div>
                 </div>
                 <div className="col-12 col-md-4 p-0">
-                    <div className="square">
+                    <div className="square contact-square">
                         {/* Add the button to trigger the modal form here */}
                         <button className="homepage-btn" onClick={() => setModalOpen(true)}>Get in Touch</button>
                     </div>
                 </div>
                 <div className="col-12 col-md-4 p-0">
-                    <div className="square"></div> 
+                    <div className="square empty-square hidden-text">
+                        REBEL
+                        </div> 
                 </div>
             </div>
             <SocialLinks />
