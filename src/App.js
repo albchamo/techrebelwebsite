@@ -6,17 +6,12 @@ import AboutUs from './pages/AboutUs';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import SingleProjectPage from './pages/SingleProjectPage';
-import { Web3Modal } from '@web3modal/react';
-import { WagmiConfig } from 'wagmi';
-import { wagmiConfig, ethereumClient, projectId } from "./services/Web3ModalConfig";
 import { LocaleProvider } from './components/LocaleContext';
 
 const App = () => {
   return (
     <>
     <LocaleProvider>
-      {/* Wrapping the app with WagmiConfig for Ethereum integration */}
-      <WagmiConfig config={wagmiConfig}>
         <Router>
           <Routes>
             <Route path="/" element={<Homepage />} />
@@ -27,9 +22,6 @@ const App = () => {
             <Route path="/project/:id" element={<SingleProjectPage />} />
           </Routes>
         </Router>
-        {/* Web3Modal for Ethereum wallet connection */}
-        <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-      </WagmiConfig>
       </LocaleProvider>
     </>
   );

@@ -4,15 +4,12 @@ import './BlogPage.css'; // Consider using CSS modules or styled-components for 
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import BackButton from '../components/BackButton';
-import { Web3Button } from '@web3modal/react';
-import { useWeb3Modal } from "@web3modal/react";
+
 
 function BlogPage() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedAuthor, setSelectedAuthor] = useState('');
-  const { account } = useWeb3Modal();
-  const buttonText = account ? `${account.slice(0, 6)}...${account.slice(-4)}` : "Connect Wallet";
 
   // Fetching blog posts from Contentful
   useEffect(() => {
