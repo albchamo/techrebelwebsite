@@ -82,7 +82,10 @@ const shareImage = post && post.seoFields?.shareImages?.length > 0
                 <h1 className="post-title">{post.title}</h1>
                 <div className="post-author">
                     <img src={post.author.fields.avatar.fields.file.url} alt={post.author.fields.name} className="author-avatar" />
+                     {/* Make the author's name a clickable link */}
+                <Link to={`/author/${post.author.sys.id}`} className="author-name-link">
                     <span>{post.author.fields.name}</span>
+                </Link>
                 </div>
                 <p className="post-date">{new Date(post.publishedDate).toLocaleDateString()}</p>
                 <img src={post.featuredImage.fields.file.url} alt={post.title} className="post-image" />
