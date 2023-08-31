@@ -16,6 +16,9 @@ function BlogPostPage() {
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const { locale } = useLocale(); // Use the locale from the context
+    const shareImage = post?.seoFields?.shareImages?.length > 0 
+        ? post.seoFields.shareImages[0].fields.file.url 
+        : post?.featuredImage?.fields?.file?.url;
 
     useEffect(() => {
         client.getEntry(id, { locale: locale }) // Include the locale parameter
@@ -33,12 +36,6 @@ function BlogPostPage() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [id]);
-
-
-// Determine which image to use for sharing
-const shareImage = post && post.seoFields?.shareImages?.length > 0 
-? post.seoFields.shareImages[0].fields.file.url 
-: post?.featuredImage?.fields?.file?.url;
 
 
     // Custom renderer for embedded entries in rich text, specifically for images
@@ -71,7 +68,7 @@ const shareImage = post && post.seoFields?.shareImages?.length > 0
             <meta name="description" content={post.shortDescription} />
             <meta property="og:title" content={post.title} />
             <meta property="og:description" content={post.shortDescription} />
-            <meta property="og:image" content={post.featuredImage.fields.file.url} />
+            <meta property="og:image" content={shareImage} /> {/* Use shareImage here */}
             <meta property="og:url" content={`https://techrebel.com/post/${post.id}`} />
             <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
