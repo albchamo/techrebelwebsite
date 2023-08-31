@@ -32,6 +32,15 @@ const SingleProjectPage = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>{project.name} - Tech Rebel</title>
+        <meta name="description" content={`Project by ${project.stakeholder}`} />
+        <meta property="og:title" content={project.name} />
+        <meta property="og:description" content={`Project by ${project.stakeholder}`} />
+        <meta property="og:image" content={project.projectImage.fields.file.url} />
+        <meta property="og:url" content={`https://techrebel.com/project/${project.id}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
         <Navbar />
     <div className="project-container">
       <h1 className="project-title">{project.name}</h1>

@@ -66,8 +66,7 @@ const shareImage = post && post.seoFields?.shareImages?.length > 0
     // Render the blog post content
     return (
         <>
-        {shareImage && (
-            <Helmet>
+        <Helmet>
             <title>{post.title} - Tech Rebel</title>
             <meta name="description" content={post.shortDescription} />
             <meta property="og:title" content={post.title} />
@@ -76,7 +75,6 @@ const shareImage = post && post.seoFields?.shareImages?.length > 0
             <meta property="og:url" content={`https://techrebel.com/post/${post.id}`} />
             <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
-        )}
             <Navbar />
             <div className="post-container">
                 <h1 className="post-title">{post.title}</h1>
