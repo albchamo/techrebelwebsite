@@ -7,6 +7,8 @@ import Navbar from "../components/Navbar";
 import BackButton from '../components/BackButton';
 import ContactModal from '../components/ContactModal';
 import { useLocale } from '../components/LocaleContext'; // Import the useLocale hook
+import { Helmet } from 'react-helmet';
+
 
 const SingleProjectPage = () => {
   const [project, setProject] = useState(null);

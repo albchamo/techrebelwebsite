@@ -68,14 +68,14 @@ const shareImage = post && post.seoFields?.shareImages?.length > 0
         <>
         {shareImage && (
             <Helmet>
-                {/* Meta tags for Twitter Cards */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:image" content={shareImage} />
-
-                {/* Meta tags for Facebook Open Graph */}
-                <meta property="og:image" content={shareImage} />
-                <meta property="og:image:alt" content={post?.title} />
-            </Helmet>
+            <title>{post.title} - Tech Rebel</title>
+            <meta name="description" content={post.shortDescription} />
+            <meta property="og:title" content={post.title} />
+            <meta property="og:description" content={post.shortDescription} />
+            <meta property="og:image" content={post.featuredImage.fields.file.url} />
+            <meta property="og:url" content={`https://techrebel.com/post/${post.id}`} />
+            <meta name="twitter:card" content="summary_large_image" />
+        </Helmet>
         )}
             <Navbar />
             <div className="post-container">
