@@ -1,0 +1,54 @@
+/* CategoryFilter.css */
+
+.brutalist-category-button {
+    background-color: #000; /* Black background */
+    color: #FFF; /* White text */
+    border: none;
+    padding: 10px 30px; /* Reduced padding on top and bottom */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 3px solid #FFF; /* White border */
+    margin: 5px; /* Spacing between buttons */
+}
+
+.brutalist-category-button:hover {
+    background-color: #FF6000; /* Change to your signature orange on hover */
+}
+
+.brutalist-category-button.active {
+    background-color: #FF6000; /* Signature orange for the active category */
+}
+/* Category Filter Container */
+/* Container for the category buttons */
+/* Container for the category buttons */
+.category-filter-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center the buttons horizontally */
+    flex-wrap: wrap; /* Allow wrapping if there's not enough space */
+    gap: 10px; /* Space between buttons */
+    margin-bottom: 20px; /* Space below the button container */
+}
+
+/* Individual category button styles */
+.category-button {
+    background-color: #000; /* Black background */
+    color: #FFF; /* White text */
+    border: 3px solid #FFF; /* White border */
+    padding: 10px 30px; /* Adjusted padding */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    text-decoration: none; /* Remove underline for anchor tags */
+}
+
+.category-button:hover {
+    background-color: #FF6000; /* Change to your signature orange on hover */
+}
+
+.category-button.active {
+    background-color: #FF6000; /* Make the active category button orange */
+}

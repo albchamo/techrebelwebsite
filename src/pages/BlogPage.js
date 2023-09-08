@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import BackButton from '../components/BackButton';
 import { useLocale } from '../components/LocaleContext';
+import CategoryFilter from '../components/CategoryFilter';
+
 
 
 function BlogPage() {
@@ -12,12 +14,18 @@ function BlogPage() {
   const [loading, setLoading] = useState(true);
   const [selectedAuthor, setSelectedAuthor] = useState('');
   const { locale } = useLocale();
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const categories = [ 'General', 'News', 'Research']; // Replace with your actual categories
+
+
 
   useEffect(() => {
     client.getEntries({ content_type: 'pageBlogPost', locale: locale })
       .then((response) => {
         const sortedPosts = response.items.sort((a, b) => new Date(b.sys.createdAt) - new Date(a.sys.createdAt));
         setPosts(sortedPosts);
+
+
         setLoading(false);
       })
       .catch(error => {
@@ -30,11 +38,28 @@ function BlogPage() {
     setSelectedAuthor(event.target.value);
   };
 
-  const filteredPosts = selectedAuthor ? posts.filter(post => post.fields.author.fields.name === selectedAuthor) : posts;
+  const handleCategorySelect = (category) => {
+    console.log("Selected Category:", category);
+    setSelectedCategory(category);
+  };
 
+  //const filteredPosts = selectedAuthor ? posts.filter(post => post.fields.author.fields.name === selectedAuthor) : posts;
+  let filteredPosts = posts;
+  if (selectedAuthor) {
+    filteredPosts = filteredPosts.filter(post => post.fields.author.fields.name === selectedAuthor);
+  }
+  if (selectedCategory !== 'All') {
+    filteredPosts = filteredPosts.filter(post => 
+      post.fields.category.some(cat => cat.fields.name === selectedCategory)
+    );
+    console.log("Filtered Posts:", filteredPosts); // Log the final filtered posts
+  }
   return (
     <div>
       <Navbar />
+      <div className="category-filter-wrapper">
+    <CategoryFilter categories={categories} onCategorySelect={handleCategorySelect} />
+</div>
       <div className="author-filter">
         <label>Filter by Author:</label>
         <select onChange={handleAuthorChange}>
