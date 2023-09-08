@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AboutUs.css';
 import Navbar from '../components/Navbar';
 import SocialLinks from '../components/SocialLinks';
 import { ContactForm } from '../components/ContactForm';
 import BackButton from '../components/BackButton';
+import client from '../services/contenful';
+import AuthorCard from '../components/AuthorCard';
 
 const AboutUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const authorNames = ['Alberto Chaves', 'Sergio Mora', 'Nazareno (Tuka) Rozas'];
+
 
   return (
     <div className="about-page">
@@ -14,7 +18,7 @@ const AboutUs = () => {
         <Navbar />
       </header>
 
-      <h1 className="page-title">Web3 Innovation Catalyst</h1>
+
 
       <h3>Who We Are</h3>
       <p>
@@ -45,6 +49,14 @@ const AboutUs = () => {
         Tech Rebel is for anyone and everyone who believes in the future of the digital world and wants a trusted partner to lead the way.
       </p>
 
+      <h3>The team:</h3>
+  <div className="authors-section">
+  {authorNames.map(name => (
+    <AuthorCard key={name} authorName={name} />
+  ))}
+</div>
+
+
       {/* Button to trigger the modal */}
       <button className="get-in-touch-btn" onClick={() => setModalOpen(true)}>Contact Us</button>
 
@@ -57,6 +69,9 @@ const AboutUs = () => {
         </div>
     </div>
 )}
+
+
+
       <SocialLinks />
       <BackButton text="Back" onClick={() => window.history.back()} />
 

@@ -1,0 +1,68 @@
+.author-card-link {
+    display: block;
+    width: calc(30% - 1rem);
+    color: #ffffff; /* White text color for the link */
+    text-decoration: none;
+    margin: 1rem 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Smooth transition for the scale animation */
+}
+
+.author-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text color */
+    padding: 1rem;
+    border: 1px solid #ffffff; /* White border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Smooth transition for the border color change */
+}
+
+.author-card img {
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%; /* This will make the image circular */
+}
+
+.author-card:hover {
+    border-color: #ff6000; /* Change border color on hover */
+    transform: scale(1.05); /* Make the card slightly bigger on hover */
+}
+  
+/* ... (rest of your styles) ... */
+
+  
+.card-header {
+    font-size: 1.5rem; /* Font size for the card title */
+    font-weight: 700; /* Bold font weight */
+    margin-bottom: 1rem; /* Margin below the title */
+}
+  
+.card-content {
+    font-size: 1.2rem; /* Font size for the card content */
+    line-height: 1.6; /* Spacing between lines */
+}
+  
+.card-footer {
+    margin-top: 1rem; /* Margin above the footer */
+    font-size: 1rem; /* Font size for the footer */
+    text-align: right; /* Aligns footer content to the right */
+}
+  
+/* Responsive design: On smaller screens, make the cards stack */
+@media (max-width: 992px) {
+    .author-card-link {
+        width: 100%; /* Full width on smaller screens for the link */
+    }
+
+    .author-card {
+        width: 100%; /* Full width on smaller screens for the card */
+    }
+}

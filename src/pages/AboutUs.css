@@ -2,7 +2,7 @@
 .about-page {
   background-color: #000000;
   color: #ffffff;
-  padding: 1rem 2rem; /* Vertical padding remains the same, horizontal padding added */
+  padding: 2rem 2rem; /* Vertical padding remains the same, horizontal padding added */
   font-family: 'Courier New', monospace; 
 }
 
@@ -87,3 +87,12 @@ h1.page-title {
 .get-in-touch-btn:hover {
   background-color: #e55900; /* Slightly darker shade for hover */
 }
+
+.authors-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distributes the cards evenly with space in between */
+  align-items: flex-start; /* Aligns the cards to the top */
+  gap: 1rem; /* Adds a gap between the cards */
+}
+
