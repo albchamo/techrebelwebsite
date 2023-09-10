@@ -8,6 +8,7 @@ import BlogPostPage from './pages/BlogPostPage';
 import SingleProjectPage from './pages/SingleProjectPage';
 import { LocaleProvider } from './components/LocaleContext';
 import AuthorBioPage from './pages/AuthorBioPage';
+import Deck from './pages/Deck';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/post/:id" element={<BlogPostPage />} />
             <Route path="/project/:id" element={<SingleProjectPage />} />
             <Route path="/author/:id" element={< AuthorBioPage />} />
+            <Route path="/deck" element={<Deck/>} />
           </Routes>
         </Router>
       </LocaleProvider>
