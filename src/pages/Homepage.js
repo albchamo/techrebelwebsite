@@ -17,6 +17,11 @@ const Homepage = () => {
         alert('Contact me at alberto@albertochaves.com');
     };
 
+    const handleFormSuccess = () => {
+        // Redirect to another page or show a message, etc.
+        window.location.href = "/";
+    };
+
     return (
         <div className="container-fluid p-0">
             <div className="row m-0">
@@ -79,7 +84,7 @@ const Homepage = () => {
                 <div className="modal">
                     <div className="modal-content">
                         <span className="close-button" onClick={() => setModalOpen(false)}>&times;</span>
-                        <ContactForm />
+                        <ContactForm onSuccessCallback={handleFormSuccess} />
                     </div>
                 </div>
             )}

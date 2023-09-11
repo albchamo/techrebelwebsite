@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
-export function ContactForm() {
-  const [state, handleSubmit] = useForm("mqkvpqye");
+export function ContactForm({ onSuccessCallback }) {
+  const [state, handleSubmit] = useForm("mqkvpqye")
   
   if (state.succeeded) {
-      return <p>Thanks for joining!</p>;
-  }
+    onSuccessCallback && onSuccessCallback();
+    return <p>Thank you!</p>;
+}
 
   return (
     <div className="form-container">

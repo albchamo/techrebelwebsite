@@ -2,7 +2,7 @@ import React from 'react';
 import { ContactForm } from './ContactForm';
 import './Modal.css';
 
-const ContactModal = ({ isOpen, onClose }) => {
+const ContactModal = ({ isOpen, onClose, onSuccessCallback  }) => {
     const handleCloseModal = (e) => {
         if (e.target.className === "modal") {
             onClose();
@@ -19,7 +19,7 @@ const ContactModal = ({ isOpen, onClose }) => {
         <div className="modal" onClick={handleCloseModal}>
             <div className="modal-content">
                 <span className="close-button" onClick={onClose}>&times;</span>
-                <ContactForm />
+                <ContactForm onSuccessCallback={onSuccessCallback} />
             </div>
         </div>
     );
