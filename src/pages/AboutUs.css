@@ -96,3 +96,76 @@ h1.page-title {
   gap: 1rem; /* Adds a gap between the cards */
 }
 
+/* Existing styles remain unchanged */
+
+/* New styles for the hero section */
+.hero-section {
+  display: flex;
+  flex-direction: row; /* Explicitly set to row for larger screens */
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  background-color: #000000; /* Black background for contrast */
+}
+
+
+.left-column, .right-column {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Responsive design: On smaller screens, stack the columns */
+@media (max-width: 768px) { /* This breakpoint can be adjusted based on your design needs */
+  .hero-section {
+    flex-direction: column; /* Stack the columns vertically on smaller screens */
+  }
+
+  .left-column, .right-column {
+    width: 100%; /* Take up the full width on smaller screens */
+    text-align: center; /* Center the text on smaller screens */
+  }
+
+  .separator {
+    display: none; /* Hide the separator on smaller screens */
+  }
+}
+
+.cta-button {
+  background-color: #ff6000;
+  color: #ffffff;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+  box-shadow: 0px 0px 15px rgba(255, 96, 0, 0.4);
+}
+
+.cta-button:hover {
+  background-color: #e55900;
+}
+
+.separator {
+  width: 1px;
+  background-color: #ffffff;
+  height: 100%;
+}
+
+/* Styling for the headings to make them more brutalist */
+.about-page h3 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Styling for the paragraphs to make them more concise and direct */
+p {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 500px; /* Limiting the width for better readability */
+}
