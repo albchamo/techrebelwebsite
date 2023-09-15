@@ -89,7 +89,7 @@ function BlogPostPage() {
                     <div className="related-posts">
                         <h2>Related Posts</h2>
                         {post.relatedBlogPosts.map(relatedPost => (
-                            <Link to={`/post/${relatedPost.sys.id}`} key={relatedPost.sys.id} className="related-post-link">
+                            <Link to={`/post/${relatedPost.fields.slug}`} key={relatedPost.sys.id} className="related-post-link">
                                 <div className="related-post">
                                     <h3>{relatedPost.fields.title}</h3>
                                     <p>{relatedPost.fields.shortDescription}</p>
@@ -105,3 +105,5 @@ function BlogPostPage() {
 }
 
 export default BlogPostPage;
+
+//<Link to={`/post/${post.fields.slug}`} key={post.sys.id}
