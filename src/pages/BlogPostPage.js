@@ -1,4 +1,3 @@
-// Importing necessary libraries and components
 import React, { useState, useEffect } from 'react';
 import client from '../services/contenful';
 import './BlogPostPage.css';
@@ -8,37 +7,39 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS } from '@contentful/rich-text-types';
 import { Link } from 'react-router-dom';
 import BackButton from '../components/BackButton';
-import { useLocale } from '../components/LocaleContext'; // Import the useLocale hook
+import { useLocale } from '../components/LocaleContext';
 import { Helmet } from 'react-helmet';
 
 function BlogPostPage() {
-    const { id } = useParams();
+    const { slug } = useParams();
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
-    const { locale } = useLocale(); // Use the locale from the context
+    const { locale } = useLocale();
     const shareImage = post?.seoFields?.shareImages?.length > 0 
         ? post.seoFields.shareImages[0].fields.file.url 
         : post?.featuredImage?.fields?.file?.url;
 
     useEffect(() => {
-        client.getEntry(id, { locale: locale }) // Include the locale parameter
+        // Use getEntries with a query to fetch by slug
+        client.getEntries({ 'fields.slug': slug, content_type: 'pageBlogPost', locale: locale })
             .then((response) => {
-                setPost(response.fields);
+                if (response.items.length > 0) {
+                    setPost(response.items[0].fields);
+                } else {
+                    console.error("No entries found for the given slug.");
+                }
                 setLoading(false);
             })
             .catch(error => {
                 console.error("Error fetching data from Contentful:", error);
                 setLoading(false);
             });
-    }, [id, locale]);
+    }, [slug, locale]);
 
-    // Scroll to top when the post ID changes
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [slug]);
 
-
-    // Custom renderer for embedded entries in rich text, specifically for images
     const options = {
         renderNode: {
             [BLOCKS.EMBEDDED_ENTRY]: (node) => {
@@ -55,12 +56,10 @@ function BlogPostPage() {
         }
     };
 
-    // Display a loading message while fetching data
     if (loading) {
         return <div>Loading...</div>;
     }
 
-    // Render the blog post content
     return (
         <>
         <Helmet>
@@ -68,8 +67,8 @@ function BlogPostPage() {
             <meta name="description" content={post.shortDescription} />
             <meta property="og:title" content={post.title} />
             <meta property="og:description" content={post.shortDescription} />
-            <meta property="og:image" content={shareImage} /> {/* Use shareImage here */}
-            <meta property="og:url" content={`https://techrebel.com/post/${post.id}`} />
+            <meta property="og:image" content={shareImage} />
+            <meta property="og:url" content={`https://techrebel.com/post/${post.slug}`} /> {/* Use slug instead of id */}
             <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
             <Navbar />
@@ -77,7 +76,6 @@ function BlogPostPage() {
                 <h1 className="post-title">{post.title}</h1>
                 <div className="post-author">
                     <img src={post.author.fields.avatar.fields.file.url} alt={post.author.fields.name} className="author-avatar" />
-                     {/* Make the author's name a clickable link */}
                 <Link to={`/author/${post.author.sys.id}`} className="author-name-link">
                     <span>{post.author.fields.name}</span>
                 </Link>
@@ -106,5 +104,4 @@ function BlogPostPage() {
     );
 }
 
-// Exporting the BlogPostPage component for use in other parts of the application
 export default BlogPostPage;

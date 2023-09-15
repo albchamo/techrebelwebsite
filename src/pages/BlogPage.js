@@ -71,7 +71,7 @@ function BlogPage() {
       </div>
       <div className="blog-container">
         {filteredPosts.map(post => (
-          <Link to={`/post/${post.sys.id}`} key={post.sys.id}>
+          <Link to={`/post/${post.fields.slug}`} key={post.sys.id}>
             <div className="blog-post">
               <div className="blog-title">{post.fields.title}</div>
               <div className="blog-author">{post.fields.author.fields.name}</div>
