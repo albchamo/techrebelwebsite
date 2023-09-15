@@ -45,6 +45,8 @@ body {
 .blog-author {
     padding: 1rem;
     background-color: #FF6000;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 /* Hover Effects */

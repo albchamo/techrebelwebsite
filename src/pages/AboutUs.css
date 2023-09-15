@@ -24,13 +24,15 @@
   font-size: 1.9rem;
 }
 
-p {
-  font-size: 1.2rem; 
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  font-weight: 300; 
-  text-align: left; 
+
+.hero-section p {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 500px; /* Limiting the width for better readability */
 }
+
+
 
 ul {
   list-style-type: none;
@@ -163,9 +165,4 @@ h1.page-title {
 }
 
 /* Styling for the paragraphs to make them more concise and direct */
-p {
-  font-size: 1.4rem;
-  line-height: 1.5;
-  font-weight: 400;
-  max-width: 500px; /* Limiting the width for better readability */
-}
+
