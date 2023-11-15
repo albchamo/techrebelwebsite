@@ -7,128 +7,77 @@ body {
     padding: 0;
 }
 
-/* Blog Posts Grid */
+/* Main Blog Posts Container */
 .blog-container {
-    display: grid;
-    grid-template-columns: 1fr; /* By default, one post per row */
-    gap: 4rem;
-    padding: 4rem;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    max-width: 960px; /* Increased width to 20% more */
     margin: 0 auto;
-}
-
-/* Media query for larger screens (e.g., tablets and desktops) */
-@media (min-width: 768px) {
-    .blog-container {
-        grid-template-columns: repeat(3, 1fr); /* On larger screens, show 3 posts per row */
-    }
+    margin-bottom: 2rem;
+    border: 2px solid #FF6000;
 }
 
 /* Individual Blog Post */
 .blog-post {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto; /* Only one row now since we removed the description */
-    gap: 1rem;
-    border: 2px solid #FF6000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.blog-title, .blog-author, a {
+    color: white; /* Ensuring font color is white */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.blog-title:hover, .blog-author:hover, a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
 }
 
 .blog-title {
-    grid-column: 1 / -1;
-    text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    padding: 1rem;
-    background-color: #FF6000;
+    margin-right: 1rem;
 }
 
 .blog-author {
-    padding: 1rem;
-    background-color: #FF6000;
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1.2rem;
+    text-align: right;
 }
 
-/* Hover Effects */
-.blog-title:hover, .blog-description:hover, .blog-author:hover {
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
-
-.blog-container a {
-    text-decoration: none; /* Removes the underline */
-    color: inherit; /* Inherits the color from its parent */
-}
-  
-.blog-container a:hover {
-    text-decoration: underline; /* Adds underline on hover for better UX */
-}
-
-/* ... [existing styles] */
-
+/* Author Filter Styles */
 .author-filter {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     margin-top: 1rem;
+    margin-bottom: 2rem; /* Added space below the filter */
 }
 
 .author-filter select {
     padding: 0.5rem;
     font-size: 1rem;
-}
-
-/* ... [existing styles] */
-
-.author-filter select {
-    padding: 0.5rem;
-    font-size: 1rem;
-    background-color: transparent; /* Make the background transparent */
-    border: 2px solid white; /* Add a white border */
-    color: white; /* Make the text color white */
-    appearance: none; /* Remove default appearance */
-    -webkit-appearance: none; /* Remove default appearance for Webkit browsers */
-    -moz-appearance: none; /* Remove default appearance for Firefox */
-    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    appearance: none;
+    cursor: pointer;
 }
 
 .author-filter select:focus {
-    outline: none; /* Remove the default focus outline */
-    border-color: black; /* Change border color to black on focus */
+    outline: none;
+    border-color: #FF6000;
 }
 
-/* Style for the dropdown options when open */
 .author-filter select option {
-    background-color: black; /* Make the background black */
-    color: white; /* Make the text color white */
-}
-.blog-author {
-    text-align: right;
+    background-color: black;
+    color: white;
 }
 
-body, html {
-    overflow-x: hidden;
-}
+/* Category Filter Styles */
+/* ...existing styles from CategoryFilter.css... */
 
-/* WalletConnectButton.css */
-
-.brutalist-wallet-button {
-    background-color: #000; /* Black background */
-    color: #FFF; /* White text */
-    border: none;
-    padding: 15px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    border: 3px solid #FFF; /* White border */
-}
-
-.brutalist-wallet-button:hover {
-    background-color: #FF6000; /* Change to your signature orange on hover */
-}
+/* Adjustments for responsiveness and other specific styles can be added here */
