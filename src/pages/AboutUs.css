@@ -2,74 +2,75 @@
 .about-page {
   background-color: #000000;
   color: #ffffff;
-  padding: 2rem 2rem; /* Vertical padding remains the same, horizontal padding added */
+  padding: 4rem 2rem; /* Increased top padding for separation from navbar */
   font-family: 'Courier New', monospace; 
+  max-width: 80%; /* Slightly wider for better reading on desktop */
+
+  margin-left: auto; /* Center the paragraphs if desired */
+  margin-right: auto; /* Center the paragraphs if desired */
 }
 
-/* Responsive design: On larger screens, add more horizontal padding */
-@media (min-width: 992px) { /* This breakpoint can be adjusted based on your design needs */
-  .about-page {
-    padding: 1rem 5rem;
+
+/* Adjusting the title to stand out more */
+.about-page h1.page-title {
+  font-size: 3rem; /* Larger font size for the title */
+  font-weight: 800; /* Bolder weight for title */
+  margin-bottom: 2rem;
+}
+
+.about-page h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Subtitle for sections like 'MEET THE CRAFTSMEN' */
+.about-page h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Body text adjustments for readability */
+.about-page p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 1rem; /* Added margin to separate paragraphs */
+}
+
+/* Updated hero-section for a single-column layout */
+.hero-section {
+  padding: 40px 0;
+  background-color: #000000; /* Black background for contrast */
+}
+
+/* Remove flex and justify-content to make it a single column */
+.hero-section, .content-section {
+  display: block;
+}
+
+
+
+/* Adjusting authors-section for single-column layout */
+.authors-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the author cards */
+  gap: 1rem; /* Adds a gap between the cards */
+}
+/* Responsive design: Horizontal layout for authors-section on larger screens */
+@media (min-width: 992px) {
+  .authors-section {
+    flex-direction: row; /* Set to row for larger screens */
+    justify-content: space-between; /* Distributes the cards evenly with space in between */
+    align-items: flex-start; /* Aligns the cards to the top on larger screens */
   }
 }
 
-.about-page h2, .about-page h3 {
-  font-size: 2.2rem; 
-  margin-bottom: 1rem;
-  font-weight: 700; 
-  text-align: left; 
-}
-
-.about-page h3 {
-  font-size: 1.9rem;
-}
-
-
-.hero-section p {
-  font-size: 1.4rem;
-  line-height: 1.5;
-  font-weight: 400;
-  max-width: 500px; /* Limiting the width for better readability */
-}
-
-
-
-ul {
-  list-style-type: none;
-  padding-left: 1rem;
-  text-align: left; 
-}
-
-ul li {
-  font-size: 1.2rem; 
-  margin-bottom: 0.8rem;
-  position: relative;
-  font-weight: 300; 
-  text-align: left; 
-}
-
-/* Bolden text before ':' */
-ul li strong {
-  font-weight: 700; 
-  color: #ff6000;
-}
-
-ul li:before {
-  content: '•';
-  position: absolute;
-  left: -1rem;
-  top: 0.2rem;
-  color: #ff6000;
-  font-size: 1.5rem;
-}
-h1.page-title {
-  font-size: 36px;  /* or a size that looks good in relation to the navbar title */
-  font-weight: 700; 
-  margin-bottom: 2rem;
-  /* any other styles you want to apply to these H1s */
-}
-
-/* Button Design */
+/* Button Design for Contact Us */
 .get-in-touch-btn {
   display: block; /* Makes the button a block element */
   width: 80%; /* Width of the button */
@@ -85,36 +86,33 @@ h1.page-title {
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* Hover effect for the button */
+/* Hover effect for the Contact Us button */
 .get-in-touch-btn:hover {
   background-color: #e55900; /* Slightly darker shade for hover */
 }
 
-.authors-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Distributes the cards evenly with space in between */
-  align-items: flex-start; /* Aligns the cards to the top */
-  gap: 1rem; /* Adds a gap between the cards */
+/* Adjusting CTA Button - now at the bottom */
+.cta-button {
+  display: block; /* Make the button a block element */
+  width: auto; /* Adjust width as required */
+  margin: 2rem auto; /* Center the button and add margin */
+  background-color: #ff6000;
+  color: #ffffff;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+  box-shadow: 0px 0px 15px rgba(255, 96, 0, 0.4);
 }
 
-/* Existing styles remain unchanged */
-
-/* New styles for the hero section */
-.hero-section {
-  display: flex;
-  flex-direction: row; /* Explicitly set to row for larger screens */
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 0;
-  background-color: #000000; /* Black background for contrast */
+/* Hover effect for the CTA button */
+.cta-button:hover {
+  background-color: #e55900;
 }
 
-
-.left-column, .right-column {
-  flex: 1;
-  padding: 20px;
-}
 
 /* Responsive design: On smaller screens, stack the columns */
 @media (max-width: 768px) { /* This breakpoint can be adjusted based on your design needs */
@@ -122,14 +120,6 @@ h1.page-title {
     flex-direction: column; /* Stack the columns vertically on smaller screens */
   }
 
-  .left-column, .right-column {
-    width: 100%; /* Take up the full width on smaller screens */
-    text-align: center; /* Center the text on smaller screens */
-  }
-
-  .separator {
-    display: none; /* Hide the separator on smaller screens */
-  }
 }
 
 .cta-button {
@@ -155,14 +145,4 @@ h1.page-title {
   height: 100%;
 }
 
-/* Styling for the headings to make them more brutalist */
-.about-page h3 {
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
-
-/* Styling for the paragraphs to make them more concise and direct */
 
