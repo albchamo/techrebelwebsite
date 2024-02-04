@@ -1,0 +1,29 @@
+/* FrameworkSection.css */
+.framework-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensure space between the two items */
+    gap: 20px; /* Space between rows and items */
+  }
+  
+  .framework-step {
+    background-color: #FF6000; /* Orange background */
+    color: white; /* White text for contrast */
+    flex-basis: calc(50% - 10px); /* Half of the container minus half of gap */
+    margin-bottom: 20px; /* Margin bottom for mobile stacking */
+    padding: 20px; /* Padding inside each card */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  }
+  
+  .step-number {
+    font-weight: bold;
+    margin-right: 10px; /* Space between number and title */
+  }
+  
+  @media (max-width: 768px) {
+    .framework-step {
+      flex-basis: 100%; /* Full width on mobile */
+    }
+  }
+  

@@ -1,0 +1,112 @@
+.connect-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Dim the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Make sure it's above everything else */
+  }
+
+.connect-modal {
+    display: flex;
+    border: 2px solid black; /* Black border around the modal */
+    margin: auto; /* Center the modal on the page */
+    max-width: 800px; /* Maximum width of the modal */
+    height: auto; /* Height adjusts to content */
+    overflow: hidden; /* Ensures nothing spills out */
+    z-index: 900;  
+    position: relative; /* Needed for absolute positioning of children */
+
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(0, 0, 0); /* Make it visible against the modal background */
+  }
+  
+  .form-side {
+    flex: 1;
+    background-color: #FF6000; /* Orange background */
+    color: white; /* White text for the form side */
+    padding: 20px;
+    border-right: 2px solid black; 
+  }
+  
+  
+  .social-side {
+    flex: 1;
+    background-color: white; /* White background for the social side */
+    color: black; /* Black text for the social side */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-side a {
+    font-size: 3rem; /* Size of icons */
+    margin: 10px; /* Space between icons */
+    color: black; /* Icon color */
+  }
+
+  /* Input fields and labels */
+.form-side input,
+.form-side textarea,
+.form-side button {
+    width: 100%; /* Full width of the form-side */
+    margin-bottom: 10px; /* Space between form elements */
+    border: 2px solid black; /* Black border for form elements */
+}
+
+.form-side label {
+    font-weight: bold; /* Make label text bold */
+}
+
+.form-side input,
+.form-side textarea {
+    padding: 10px; /* Padding inside input fields */
+    background: white; /* No background to let orange color show through */
+    color: white; /* White text inside inputs for contrast */
+}
+
+.form-side button {
+    background: black; /* Black background for the submit button */
+    color: white; /* White text for the submit button */
+    padding: 10px 20px; /* Padding inside button */
+    border: none; /* No border for the button */
+    cursor: pointer; /* Cursor indicates button is clickable */
+}
+
+.form-side button:hover {
+    background: white; /* White background on hover for the submit button */
+    color: #FF6000; /* Orange text on hover for the submit button */
+}
+  
+/* Responsive layout for mobile */
+@media (max-width: 767px) {
+    .connect-modal {
+        flex-direction: column; /* Stack sections on mobile */
+    }
+
+    .form-side,
+    .social-side {
+        width: 100%; /* Full width on mobile */
+        padding: 20px;
+        border-right: none; /* No dividing line on mobile */
+    }
+
+    .social-side {
+        border-top: 2px solid black; /* Black line above social icons on mobile */
+    }
+}

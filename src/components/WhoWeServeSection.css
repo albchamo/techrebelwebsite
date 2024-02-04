@@ -1,0 +1,28 @@
+/* WhoWeServeSection.css */
+.who-we-serve-section .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap between cards as needed */
+  }
+  
+  .service-card {
+    flex: 1;
+    max-width: calc(33.333% - 20px); /* Three cards per row with gap adjustment */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff; /* Adjust background color as needed */
+  }
+  
+  .service-card h3 {
+    margin-top: 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .service-card {
+      max-width: 100%; /* Full width on smaller screens */
+    }
+  }
+  

@@ -1,0 +1,29 @@
+/* ValuePropsSection.css */
+.value-props-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust based on design preference */
+    gap: 20px; /* Space between cards */
+    padding: 20px 0; /* Vertical padding for the section */
+  }
+  
+  .value-prop {
+    background-color: #f0f0f0; /* Light background for contrast */
+    border: 1px solid #dddddd; /* Slight border for definition */
+    border-radius: 4px; /* Rounded corners */
+    padding: 20px; /* Padding inside each card */
+    width: calc(33.333% - 20px); /* Three cards per row minus gap */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  }
+  
+  .value-prop h3 {
+    margin-top: 0;
+    color: #333; /* Dark color for the title */
+  }
+  
+  @media (max-width: 768px) {
+    .value-prop {
+      width: 100%; /* Full width on mobile for stacking */
+    }
+  }
+  

@@ -32,7 +32,7 @@ body {
     text-decoration: none; /* Remove underline from links */
 }
 
-.blog-title:hover, .blog-author:hover, a:hover {
+.blog-title:hover, .blog-author:hover{
     text-decoration: underline; /* Underline on hover for better UX */
 }
 

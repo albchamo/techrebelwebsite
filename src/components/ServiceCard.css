@@ -1,0 +1,23 @@
+/* ServiceCard.css */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Align items to the start for a left-aligned look */
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff; /* Background color of the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  .service-card h3 {
+    color: #333; /* Title color */
+    margin-bottom: 15px; /* Space between title and description */
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+  

@@ -1,0 +1,20 @@
+body {
+    background-color: #FFF; /* White background */
+    font-family: 'Nimbus Sans', Arial, sans-serif; /* Nimbus Sans or fallback to Arial */
+    color: #000; /* Black text for general content */
+    font-family: 'forma-djr-micro', sans-serif;
+  }
+
+.huge-title {
+    font-size: 15vw;
+    font-family: 'forma-djr-micro', sans-serif;
+    align-content: center;
+    text-align: center;
+    }
+  
+.small-title{ 
+  font-size: 10vh;
+  font-weight: 600 !important;
+  align-content: center;
+  text-align: center;
+}

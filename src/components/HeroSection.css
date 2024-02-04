@@ -1,0 +1,20 @@
+.hero-section {
+    text-align: center;
+    padding: 50px 20px; /* Adjust the padding as needed */
+    background-color: #fff;
+  }
+  
+  .hero-section h1 {
+    font-size: clamp(2rem, 8vw, 5rem); /* Adjusts between 2rem and 5rem based on the viewport width */
+    line-height: 1.1;
+    margin-bottom: 20px;
+    width: 100%;
+    color: #000; /* Black text */
+  }
+  
+  .hero-section p {
+    max-width: 800px; /* Keeps the line length manageable */
+    margin: 0 auto; /* Centers the text block */
+    font-size: 1.25rem; /* Slightly larger paragraph text */
+    color: #000; /* Black text */
+  }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ContactForm } from './ContactForm';
-import './Modal.css';
+import './ContactModal.css';
 
 const ContactModal = ({ isOpen, onClose, onSuccessCallback  }) => {
     const handleCloseModal = (e) => {

@@ -3,7 +3,7 @@ import './Homepage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { ContactForm } from '../components/ContactForm'; // Make sure you import the Formspree form component
-import '../components/Modal.css';
+import '../components/ContactModal.css';
 import SocialLinks from "../components/SocialLinks"
 
 
