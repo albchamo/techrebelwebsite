@@ -14,7 +14,7 @@ import AuthorCard from '../components/AuthorCard';
 
 const AboutUs2 = () => {
   const [pageContent, setPageContent] = useState(null);
-  const authorNames = ['Alberto Chaves', 'Sergio Mora'];
+  const authorNames = ['Alberto Chaves', 'Sergio Mora', 'Nazareno (Tuka) Rozas'];
 
   useEffect(() => {
     // Use the Contentful client to fetch the content for the "About Us" page

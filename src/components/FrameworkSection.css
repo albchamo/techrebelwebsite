@@ -4,6 +4,10 @@
     flex-wrap: wrap;
     justify-content: space-between; /* Ensure space between the two items */
     gap: 20px; /* Space between rows and items */
+    max-width: 90vw;
+    margin: 0 auto; /* Center the section within its parent */
+    padding: 40px 0px 40px 0px; /* Top padding for the section */
+
   }
   
   .framework-step {
@@ -12,13 +16,14 @@
     flex-basis: calc(50% - 10px); /* Half of the container minus half of gap */
     margin-bottom: 20px; /* Margin bottom for mobile stacking */
     padding: 20px; /* Padding inside each card */
-    border-radius: 4px; /* Rounded corners */
+    border: 2px solid #000; /* Black border as per requirement */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
   }
   
   .step-number {
     font-weight: bold;
     margin-right: 10px; /* Space between number and title */
+   
   }
   
   @media (max-width: 768px) {

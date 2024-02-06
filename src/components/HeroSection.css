@@ -13,7 +13,7 @@
   }
   
   .hero-section p {
-    max-width: 800px; /* Keeps the line length manageable */
+    max-width: 90vw; /* Keeps the line length manageable */
     margin: 0 auto; /* Centers the text block */
     font-size: 1.25rem; /* Slightly larger paragraph text */
     color: #000; /* Black text */

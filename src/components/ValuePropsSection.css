@@ -5,12 +5,14 @@
     justify-content: space-around; /* Adjust based on design preference */
     gap: 20px; /* Space between cards */
     padding: 20px 0; /* Vertical padding for the section */
+    max-width: 90vw;
+    margin: 0 auto; /* Center the section within its parent */
+    padding: 40px 0px 40px 0px; /* Top padding for the section */;
   }
   
   .value-prop {
     background-color: #f0f0f0; /* Light background for contrast */
-    border: 1px solid #dddddd; /* Slight border for definition */
-    border-radius: 4px; /* Rounded corners */
+    border: 2px solid #000; /* Slight border for definition */
     padding: 20px; /* Padding inside each card */
     width: calc(33.333% - 20px); /* Three cards per row minus gap */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
@@ -18,7 +20,7 @@
   
   .value-prop h3 {
     margin-top: 0;
-    color: #333; /* Dark color for the title */
+    color: #000; /* Dark color for the title */
   }
   
   @media (max-width: 768px) {
