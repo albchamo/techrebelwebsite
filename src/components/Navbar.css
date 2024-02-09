@@ -16,7 +16,7 @@
   font-weight: 600; /* adjust weight */
   letter-spacing: 1.5px; 
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 
 /* Navbar.css */
@@ -27,7 +27,7 @@
   font-size: 16px;
   padding: 10px 15px;
   transition: color 0.3s;
-  color: #fff;
+  color: #000;
   margin-left: auto; /* This will push the button to the right end of the navbar */
 }
 

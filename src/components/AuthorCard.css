@@ -3,14 +3,15 @@
     width: calc(30% - 1rem);
     color: #ffffff; /* White text color for the link */
     text-decoration: none;
-    margin: 1rem 0.5rem;
+    margin: 1rem auto;
     overflow: hidden;
     transition: transform 0.3s ease; /* Smooth transition for the scale animation */
+    
 }
 
 .author-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: column ;
     align-items: center;
     justify-content: center;
     background-color: #000000; /* Black background */
@@ -18,7 +19,7 @@
     padding: 1rem;
     border: 1px solid #ffffff; /* White border */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    width: 100%;
+    width: 90%;
     box-sizing: border-box;
     transition: border-color 0.3s ease; /* Smooth transition for the border color change */
 }
@@ -63,7 +64,7 @@
 /* Responsive design: On smaller screens, make the cards stack */
 @media (max-width: 992px) {
     .author-card-link {
-        width: 100%; /* Full width on smaller screens for the link */
+        width: 95%; /* Full width on smaller screens for the link */
     }
 
     .author-card {

@@ -1,113 +1,107 @@
-.square {
-  border: 2px solid black;
-  height: 33.33vh;
+.homepage-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 10px;
-  background-color: white;
-  color: black;
-  user-select: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative; /* Needed for absolute positioning of the main square */
 }
 
-.square.rectangle {
-  height: 11.11vh; /* 33.33vh (square height) divided by 3 */
+.tech-rebel {
+  font-family: 'forma-djr-micro', sans-serif;
+  color: #fff;
+  font-weight: 600;
 }
 
-/* Add a small gap between rectangles for aesthetics */
-@media (max-width: 767px) {
-  .square.rectangle + .square.rectangle {
-    margin-top: 5px;
-  }
+
+.main-square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25vw; /* 20% of the viewport width */
+  height: 20vh; /* 20% of the viewport height */
+  z-index: 500; /* Higher than any other element */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: black;
 }
 
-.square:hover {
-  background-color: #ff6000;
-  color: white;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Subtle elevation effect */
-
-}
-
-.title {
-  font-family: 'Courier New', monospace;
-  text-align: left;
-  margin-top: 0;
-  margin-bottom: auto;
-  font-weight: normal;
-}
-
-.smaller-text, .homepage-btn {
-  font-size: 2rem;
-  font-family: 'Roboto Mono', monospace;
-  text-align: right;
+.secondary-square-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-}
-
-/* Updated Homepage Button Design */
-.homepage-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
-  background-color: #ff6000; /* Orange background */
-  border: 1px black;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out, transform 0.2s;
-  width: 80%;
-  margin: 0 auto;
-  padding: 10px 10px;
-  color: #000000; /* Black text */
-}
-
-.homepage-btn:hover {
-  background-color: #e55900; /* Slightly darker orange on hover */
-}
-
-
-@keyframes jitter {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-.title:hover {
-  animation: jitter 0.2s infinite;
-}
-
-@keyframes flash {
-  0% { background-color: #ff6000; }
-  25% { background-color: #000; }
-  50% { background-color: #ff6000; }
-  75% { background-color: #000; }
-  100% { background-color: #ff6000; }
-}
-
-.empty-square:hover {
-  animation: flash 0.5s infinite;
-}
-
-.contact-square:hover {
-  transform: scale(1.05); /* Subtle scale effect */
-
-  transition: none;
-}
-
-.hidden-text {
-  font-family: 'Arial Black', sans-serif;
-  font-size: 4em; /* Adjust as needed */
-  color: white; /* Initially set the color to white to hide it */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* In case the text is too big */
+  flex-wrap: wrap;
+  align-content: stretch; /* This will make the children fill the height */
+}
+
+.secondary-square {
+  flex: 1 1 50%; /* Fill half the width, adjust the flex-basis to 50% */
+  height: 50%; /* Fill half the height of the container */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: white; /* White background */
+  border: 1px solid black; /* Black border */
+  box-sizing: border-box; /* Include border in the element's dimensions */
+  color: black;
+  text-decoration: none;
+
+  /* Add other styles... */
+}
+
+.home-h2 {
+  font-family: 'forma-djr-micro', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.secondary-square:hover {
+  background-color: #FF6000; /* Change background color on hover */
+  /* You can add transition for a smooth color change */
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+/* Responsive design for mobile */
+@media (max-width: 767px) {
+  .homepage-container {
+    flex-direction: column; /* Stack all items vertically */
+  }
+
+
+  .main-square {
+    position: static; /* Ensure the square is part of the normal flow */
+    top: auto; /* Reset top position */
+    left: auto; /* Reset left position */
+    transform: none; /* Remove transform */
+    width: 100%; /* Full width */
+    height: 20vh; /* Match the height of the secondary squares */
+    order: -1; /* Ensures it's the first item */
+    margin: 0; /* Reset any margin */
+    z-index: auto; /* Default stacking without needing a higher z-index */
+  }
+
+  .secondary-square {
+    flex: 0 0 100%; /* Full width */
+    height: 20vh; /* Set a fixed height or adjust as necessary */
+    /* Other styles remain the same */
+  }
+
+  .secondary-square-container {
+    position: static; /* Disable absolute positioning */
+    width: 100%; /* Full width */
+    /* No need to set height; it will expand to fit its children */
+    /* Remove flex-wrap as it's not needed when stacking items */
+  }
+
 }

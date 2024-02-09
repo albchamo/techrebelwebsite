@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
-    background-color: black;
-    color: white;
+    background-color: #fff;
+    color: #000;
     font-family: 'Courier New', monospace;
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
-    max-width: 960px; /* Increased width to 20% more */
+    max-width: 80vw ; /* Increased width to 20% more */
     margin: 0 auto;
     margin-bottom: 2rem;
     border: 2px solid #FF6000;
@@ -28,7 +28,7 @@ body {
 }
 
 .blog-title, .blog-author, a {
-    color: white; /* Ensuring font color is white */
+    color: #000; /* Ensuring font color is white */
     text-decoration: none; /* Remove underline from links */
 }
 
@@ -61,8 +61,8 @@ body {
     padding: 0.5rem;
     font-size: 1rem;
     background-color: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid #000;
+    color: #000;
     appearance: none;
     cursor: pointer;
 }

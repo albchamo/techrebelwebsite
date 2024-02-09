@@ -9,7 +9,6 @@ import SingleProjectPage from './pages/SingleProjectPage';
 import { LocaleProvider } from './components/LocaleContext';
 import AuthorBioPage from './pages/AuthorBioPage';
 import Deck from './pages/Deck';
-import Homepage2 from './pages/Homepage2';
 import AboutUs2 from './pages/AboutUS2';
 
 
@@ -27,7 +26,6 @@ const App = () => {
             <Route path="/project/:id" element={<SingleProjectPage />} />
             <Route path="/author/:id" element={< AuthorBioPage />} />
             <Route path="/deck" element={<Deck/>} />
-            <Route path="/test" element={<Homepage2/>} />
             <Route path='/AboutTest' element={<AboutUs2/>} /> 
           </Routes>
         </Router>
@@ -37,3 +35,5 @@ const App = () => {
 };
 
 export default App;
+
+//            <Route path="/test" element={<Homepage2/>} />

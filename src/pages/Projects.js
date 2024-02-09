@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import SocialLinks from '../components/SocialLinks';
 import client from '../services/contenful';
 import { useLocale } from '../components/LocaleContext';
+import BackButton from '../components/BackButton';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -31,9 +32,7 @@ const ProjectsPage = () => {
         project.fields ? <ProjectCard key={project.sys.id} id={project.sys.id} project={project.fields} /> : null
       ))}
       
-      <div className="social-links-spacing">
-        <SocialLinks />
-      </div>
+      <BackButton text="Back" onClick={() => window.history.back()} />
     </div>
   );
 };

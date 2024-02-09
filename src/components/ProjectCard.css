@@ -11,7 +11,7 @@
 
 .project-card {
   background-color: transparent;  /* Make it transparent */
-  color: #fff; /* Text color to white */
+  color: #000; /* Text color to white */
   border-left: 4px solid #ff6000;  /* Thick border on the left */
   border-top: none;
   border-right: none;
@@ -98,7 +98,7 @@
   background-color: #ff6000; /* Your signature orange */
   color: #000; /* Black text */
   padding: 5px 15px;
-  border: 4px solid black; /* Thick black border */
+  border: 2px solid black; /* Thick black border */
   font-weight: bold;
   opacity: 1;
   transform: none;
@@ -112,15 +112,3 @@
   transform: translateY(-5px); /* Slight move upwards effect */
 }
 
-@keyframes jitter {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-/* Apply the jitter animation on hover */
-.project-cta:hover {
-  animation: jitter 0.2s infinite; /* Infinite loop of jitter effect */
-}

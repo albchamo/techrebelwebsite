@@ -64,14 +64,7 @@ const SingleProjectPage = () => {
       )}
     </div>
     <BackButton text="Back" onClick={() => window.history.back()} />
-    <div className="button-container">
-    <button className="brutalist-apply-button" onClick={() => setIsModalOpen(true)} type="button">
-    Apply
-    </button>
-
-    </div>
     
-    <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

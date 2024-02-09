@@ -1,6 +1,5 @@
 .projects-page {
-  background-color: #000;
-  padding: 0vh 10vw;
+  padding: 0vh 5vw;
 }
 
 @media (max-width: 768px) {
