@@ -13,7 +13,7 @@ import BackButton from '../components/BackButton';
 
 // Import other necessary components
 
-const AboutUs2 = () => {
+const AboutUs = () => {
   const [pageContent, setPageContent] = useState(null);
   const authorNames = ['Alberto Chaves', 'Sergio Mora', 'Nazareno (Tuka) Rozas'];
 
@@ -56,6 +56,6 @@ const AboutUs2 = () => {
   );
 };
 
-export default AboutUs2;
+export default AboutUs;
 
 // <ValuePropsSection content={pageContent.valueProps} />

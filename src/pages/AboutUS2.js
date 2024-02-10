@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "./AboutUs2.css"
+import "./AboutUs.css"
 import client from '../services/contenful';
 import HeroSection from '../components/HeroSection';
 import WhoWeServeSection from '../components/WhoWeServeSection';

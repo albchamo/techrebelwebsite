@@ -26,6 +26,7 @@
   @media (max-width: 768px) {
     .service-card {
       max-width: 90%; /* Full width on smaller screens */
+      flex-basis: 100%; /* Full width on mobile */
     }
   }
   
