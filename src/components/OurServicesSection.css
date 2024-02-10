@@ -27,3 +27,10 @@
     color: #000; /* Lighter text for the content */
   }
   
+  /* Responsive design: On smaller screens, make the cards stack */
+@media (max-width: 760px) {
+  .our-services-section {
+      max-width: 90vw; /* Full width on smaller screens for the link */
+  }
+
+}
