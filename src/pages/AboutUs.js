@@ -9,6 +9,8 @@ import ValuePropsSection from '../components/ValuePropsSection';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import AuthorCard from '../components/AuthorCard';
 import BackButton from '../components/BackButton';
+import Navbar from '../components/Navbar';
+import { useLocale } from '../components/LocaleContext';
 
 
 // Import other necessary components
@@ -16,16 +18,18 @@ import BackButton from '../components/BackButton';
 const AboutUs = () => {
   const [pageContent, setPageContent] = useState(null);
   const authorNames = ['Alberto Chaves', 'Sergio Mora', 'Nazareno (Tuka) Rozas'];
+  const { locale } = useLocale();
+
 
   useEffect(() => {
     // Use the Contentful client to fetch the content for the "About Us" page
-    client.getEntry('5DPM3kHwaJ0hQLgOWxcuX4')
-  .then((entry) => {
-    console.log('Contentful entry:', entry.fields); // Add this line for debugging
-    setPageContent(entry.fields);
-  })
-  .catch((error) => console.log('Error fetching entry:', error)); // Update for more detailed error
-  }, []);
+    client.getEntry('5DPM3kHwaJ0hQLgOWxcuX4', { locale: locale })
+      .then((entry) => {
+        console.log('Contentful entry:', entry.fields); // Debugging line
+        setPageContent(entry.fields);
+      })
+      .catch((error) => console.log('Error fetching entry:', error));
+  }, [locale]); // Add locale to the dependency array
 
   if (!pageContent) {
     // Display a loading state until the content is fetched
@@ -33,8 +37,9 @@ const AboutUs = () => {
   }
 
   return (
-     
     <div className="about-us">
+           <Navbar/> 
+
         <h1 className='huge-title'> ABOUT US </h1>
         <HeroSection content={pageContent.heroSection} />  
         <h3 className="small-title">Who we serve</h3>
