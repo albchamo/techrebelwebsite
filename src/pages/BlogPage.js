@@ -81,7 +81,6 @@ function BlogPage() {
           </Link>
         ))}
       </div>
-      <SocialLinks />
       <BackButton text="Back" onClick={() => window.history.back()} />
     </div>
   );
