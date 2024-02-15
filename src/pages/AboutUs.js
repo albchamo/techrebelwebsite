@@ -40,17 +40,17 @@ const AboutUs = () => {
     <div className="about-us">
            <Navbar/> 
 
-        <h1 className='huge-title'> ABOUT US </h1>
+        <h1 className='huge-title'> {pageContent.title}</h1>
         <HeroSection content={pageContent.heroSection} />  
-        <h3 className="small-title">Who we serve</h3>
+        <h3 className="small-title">{pageContent.whoWeServeTitle}</h3>
         <WhoWeServeSection content={pageContent.whoWeServes} />
-        <h3 className="small-title"> Our Services</h3>
+        <h3 className="small-title"> {pageContent.ourServicesTitle}</h3>
         <OurServicesSection content={pageContent.ourServices} />
-        <h3 className="small-title"> Our Framework</h3>
+        <h3 className="small-title"> {pageContent.ourFramework}</h3>
         <FrameworkSection content={pageContent.framework} />
-        <h3 className="small-title"> Why choose Us</h3>
+        <h3 className="small-title"> {pageContent.whyChooseUsTitle}</h3>
         <ValuePropsSection content={pageContent.valueProps} />
-        <h3 className="small-title"> Who we are</h3>
+        <h3 className="small-title"> {pageContent.whoWeAre}</h3>
         <div className="authors-section">
         {authorNames.map(name => (
           <AuthorCard key={name} authorName={name} />
