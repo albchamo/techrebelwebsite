@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import Homepage from './pages/Homepage';
 import Projects from './pages/Projects';
 import AboutUs from './pages/AboutUs';
@@ -9,12 +11,15 @@ import SingleProjectPage from './pages/SingleProjectPage';
 import { LocaleProvider } from './components/LocaleContext';
 import AuthorBioPage from './pages/AuthorBioPage';
 import Deck from './pages/Deck';
-import AboutUs2 from './pages/AboutUS2';
 
+const theme = createTheme({
+  // Your theme settings
+});
 
 const App = () => {
   return (
     <>
+    <ThemeProvider theme={theme}>
     <LocaleProvider>
         <Router>
           <Routes>
@@ -30,6 +35,7 @@ const App = () => {
           </Routes>
         </Router>
       </LocaleProvider>
+      </ThemeProvider>
     </>
   );
 };

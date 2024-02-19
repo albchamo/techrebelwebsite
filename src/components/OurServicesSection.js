@@ -1,7 +1,6 @@
 import React from 'react';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Grid } from '@mui/material';
 import ServiceItem from './ServiceItem';
-import './OurServicesSection.css'
 
 const OurServicesSection = ({ content }) => {
   if (!Array.isArray(content)) {
@@ -10,12 +9,14 @@ const OurServicesSection = ({ content }) => {
   }
 
   return (
-    <section className="our-services-section">
+    <Grid container direction="column" spacing={2} justifyContent="center" sx={{ maxWidth: { xs: '90vw', sm: '80vw' }, margin: '0 auto',  padding: '20px 0px 40px 0px'  }}>
       {content.map((serviceItem) => (
-        <ServiceItem key={serviceItem.sys.id} content={serviceItem.fields} />
+        <Grid item key={serviceItem.sys.id} xs={12} sx={{ padding : '0'}}>
+          <ServiceItem content={serviceItem.fields} />
+        </Grid>
       ))}
-    </section>
+    </Grid>
   );
-};
+      }
 
 export default OurServicesSection;

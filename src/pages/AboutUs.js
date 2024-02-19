@@ -11,6 +11,8 @@ import AuthorCard from '../components/AuthorCard';
 import BackButton from '../components/BackButton';
 import Navbar from '../components/Navbar';
 import { useLocale } from '../components/LocaleContext';
+import { Typography, Grid, Button, Container } from '@mui/material';
+
 
 
 // Import other necessary components
@@ -37,30 +39,39 @@ const AboutUs = () => {
   }
 
   return (
-    <div className="about-us">
-           <Navbar/> 
+    <Container>
+      <Navbar/> 
 
-        <h1 className='huge-title'> {pageContent.title}</h1>
+        <Typography variant="h1" sx={{ fontSize: '15vw', textAlign: 'center' }}>{pageContent.title}</Typography>
         <HeroSection content={pageContent.heroSection} />  
-        <h3 className="small-title">{pageContent.whoWeServeTitle}</h3>
+        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
+          {pageContent.whoWeServeTitle}
+        </Typography>
         <WhoWeServeSection content={pageContent.whoWeServes} />
-        <h3 className="small-title"> {pageContent.ourServicesTitle}</h3>
+        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
+           {pageContent.ourServicesTitle}
+        </Typography>
         <OurServicesSection content={pageContent.ourServices} />
-        <h3 className="small-title"> {pageContent.ourFramework}</h3>
+        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
+           {pageContent.ourFramework}
+        </Typography>
         <FrameworkSection content={pageContent.framework} />
-        <h3 className="small-title"> {pageContent.whyChooseUsTitle}</h3>
+        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}> 
+        {pageContent.whyChooseUsTitle}
+        </Typography>
         <ValuePropsSection content={pageContent.valueProps} />
-        <h3 className="small-title"> {pageContent.whoWeAre}</h3>
+        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}> 
+         {pageContent.whoWeAre}
+         </Typography>
         <div className="authors-section">
         {authorNames.map(name => (
           <AuthorCard key={name} authorName={name} />
         ))}
           </div>
           <BackButton text="Back" onClick={() => window.history.back()} />
-    </div>
+          </Container>
   );
 };
 
 export default AboutUs;
 
-// <ValuePropsSection content={pageContent.valueProps} />

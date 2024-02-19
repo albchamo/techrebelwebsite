@@ -1,24 +1,22 @@
 import React from 'react';
-import ServiceCard from './ServiceCard';
-import './WhoWeServeSection.css'
+import { Grid, Card, CardContent, Typography } from '@mui/material';
+import ServiceCard from './ServiceCard'; // Assuming ServiceCard will also be refactored to use MUI
 
 const WhoWeServeSection = ({ content }) => {
-  // Add a guard clause to make sure content is an array
   if (!Array.isArray(content)) {
     console.error('Expected an array for whoWeServes, received:', content);
-    return null; // or a placeholder element
+    return null;
   }
 
   return (
-    <section className="who-we-serve-section">
-      <div className="cards-container">
-        {content.map((serviceCardEntry) => (
-          <ServiceCard key={serviceCardEntry.sys.id} content={serviceCardEntry.fields} />
-        ))}
-      </div>
-    </section>
+    <Grid container spacing={2} justifyContent="center" sx={{ padding: '20px 0 40px' }}>
+      {content.map((serviceCardEntry) => (
+        <Grid item key={serviceCardEntry.sys.id} xs={12} sm={6} md={4}>
+          <ServiceCard content={serviceCardEntry.fields} />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
-
 
 export default WhoWeServeSection;

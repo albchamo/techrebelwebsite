@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar';
 import BackButton from '../components/BackButton';
 import { useLocale } from '../components/LocaleContext';
 import CategoryFilter from '../components/CategoryFilter';
-import SocialLinks from '../components/SocialLinks';
 
 
 

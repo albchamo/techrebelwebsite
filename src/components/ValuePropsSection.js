@@ -1,6 +1,6 @@
 import React from 'react';
-import ValueProp from './ValueProp'; // Make sure you have this component
-import './ValuePropsSection.css';
+import ValueProp from './ValueProp';
+import { Grid } from '@mui/material';
 
 const ValuePropsSection = ({ content }) => {
   if (!Array.isArray(content)) {
@@ -9,11 +9,11 @@ const ValuePropsSection = ({ content }) => {
   }
 
   return (
-    <section className="value-props-section">
+    <Grid container spacing={2} sx={{ maxWidth: '90vw', margin: '0 auto', padding: '40px 0' }}>
       {content.map((valueProp) => (
         <ValueProp key={valueProp.sys.id} content={valueProp.fields} />
       ))}
-    </section>
+    </Grid>
   );
 };
 
