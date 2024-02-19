@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import client from '../services/contenful';
-import './BlogPostPage.css';
 import { useParams } from 'react-router-dom';
+import { Container, Typography, Box, Card, CardMedia, CardContent, Grid, Link } from '@mui/material';
 import Navbar from '../components/Navbar';
+import BackButton from '../components/BackButton'; // Assume this is adapted to MUI
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS } from '@contentful/rich-text-types';
-import { Link } from 'react-router-dom';
-import BackButton from '../components/BackButton';
-import { useLocale } from '../components/LocaleContext';
 import { Helmet } from 'react-helmet';
+import { useLocale } from '../components/LocaleContext';
 
 function BlogPostPage() {
     const { slug } = useParams();
@@ -43,14 +42,12 @@ function BlogPostPage() {
     const options = {
         renderNode: {
             [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-                const { internalName, image, caption, fullWidth } = node.data.target.fields;
-                const imageUrl = image.fields.file.url;
-                const alt = internalName;
-                return (
-                    <div className={`rich-image ${fullWidth ? 'full-width' : ''}`}>
-                        <img src={imageUrl} alt={alt} />
-                        {caption && <p className="caption">{caption}</p>}
-                    </div>
+                const { file } = node.data.target.fields;
+                const imageUrl = file.url;
+                 return (
+                    <Box sx={{ maxWidth: '100%', margin: 'auto' }}>
+                        <img src={imageUrl} alt={file.title} style={{ width: '100%', height: 'auto' }} />
+                    </Box>
                 );
             }
         }
@@ -72,34 +69,49 @@ function BlogPostPage() {
             <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
             <Navbar />
-            <div className="post-container">
-                <h1 className="post-title">{post.title}</h1>
-                <div className="post-author">
-                    <img src={post.author.fields.avatar.fields.file.url} alt={post.author.fields.name} className="author-avatar" />
-                <Link to={`/author/${post.author.sys.id}`} className="author-name-link">
-                    <span>{post.author.fields.name}</span>
-                </Link>
-                </div>
-                <p className="post-date">{new Date(post.publishedDate).toLocaleDateString()}</p>
-                <img src={post.featuredImage.fields.file.url} alt={post.title} className="post-image" />
-                <div className="post-content">
+            <Container>
+            <Typography variant="h2" sx={{ color: '#FF6000', marginBottom: 2, fontSize: { xs: '1.5rem', md: '3rem' } }}>
+                {post.title}
+            </Typography>
+                
+            <Grid container spacing={2} alignItems="center" justifyContent="space-between">
+                <Grid item xs={12} md={6} sx={{ paddingBottom: '20px'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <CardMedia
+                        component="img"
+                        image={post.author.fields.avatar.fields.file.url}
+                        alt={post.author.fields.name}
+                        sx={{ width: 50, height: 50, borderRadius: '50%' }}
+                    />
+                    <Link to={`/author/${post.author.sys.id}`} sx={{ textDecoration: 'none', color: 'inherit', ml: 1 }}>
+                        <Typography variant="body1">{post.author.fields.name}</Typography>
+                    </Link>
+                    </Box>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <Typography variant="body2" sx={{ color: '#FF6000', textAlign: { xs: 'left', md: 'right' } }}>
+                        {new Date(post.publishedDate).toLocaleDateString()}
+                    </Typography>
+                </Grid>
+                </Grid>
+                
+                <Card sx={{ maxWidth: '100%', boxShadow: 'none', marginBottom: 2 }}>
+                <CardMedia
+                    component="img"
+                    image={post.featuredImage.fields.file.url}
+                    alt={post.title}
+                    sx={{ maxHeight: 500, width: '100%', maxWidth: '100%', margin: 'auto' }}
+                    />
+                </Card>
+                
+                <Box sx={{ my: 4 , paddingBottom: '5rem'}}>
                     {documentToReactComponents(post.content, options)}
-                </div>
-                {post.relatedBlogPosts && post.relatedBlogPosts.length > 0 && (
-                    <div className="related-posts">
-                        <h2>Related Posts</h2>
-                        {post.relatedBlogPosts.map(relatedPost => (
-                            <Link to={`/post/${relatedPost.fields.slug}`} key={relatedPost.sys.id} className="related-post-link">
-                                <div className="related-post">
-                                    <h3>{relatedPost.fields.title}</h3>
-                                    <p>{relatedPost.fields.shortDescription}</p>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                )}
-                <BackButton text="Back" onClick={() => window.history.back()} />
-            </div>
+                </Box>
+                
+                {/* Related Posts */}
+                
+                <BackButton text="Back" onClick={() => window.history.back()} sx={{ my: 4 }} />
+            </Container>
         </>
     );
 }

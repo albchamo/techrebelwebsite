@@ -13,7 +13,20 @@ import AuthorBioPage from './pages/AuthorBioPage';
 import Deck from './pages/Deck';
 
 const theme = createTheme({
-  // Your theme settings
+  palette: {
+    primary: {
+      main: '#ff6000',
+    },
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderColor: '#ff6000 !important',
+        },
+      },
+    },
+  },
 });
 
 const App = () => {

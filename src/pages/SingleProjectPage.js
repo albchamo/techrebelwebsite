@@ -2,70 +2,80 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import client from '../services/contenful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import './SingleProjectPage.css';
+import { Container, Typography, Card, CardMedia, Box, Grid, Link, Button } from '@mui/material';
 import Navbar from "../components/Navbar";
-import BackButton from '../components/BackButton';
-import ContactModal from '../components/ContactModal';
-import { useLocale } from '../components/LocaleContext'; // Import the useLocale hook
+import BackButton from '../components/BackButton'; // Ensure this is using MUI
+import ContactModal from '../components/ContactModal'; // Ensure this is adapted to MUI
+import { useLocale } from '../components/LocaleContext';
 import { Helmet } from 'react-helmet';
+import { BLOCKS } from '@contentful/rich-text-types';
 
 
 const SingleProjectPage = () => {
+  const { id } = useParams();
   const [project, setProject] = useState(null);
-  const { id } = useParams(); // Get the project ID from the URL
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { locale } = useLocale(); // Use the locale from the context
+  const { locale } = useLocale();
 
   useEffect(() => {
-    client.getEntry(id, { locale: locale }) // Include the locale parameter
+    client.getEntry(id, { locale: locale })
       .then((response) => {
         setProject(response.fields);
       })
       .catch(error => {
         console.error("Error fetching project details from Contentful:", error);
       });
-  }, [id, locale]); // Add locale to the dependency array
+  }, [id, locale]);
 
   if (!project) {
-    return <div>Loading...</div>;
+    return <Typography>Loading...</Typography>;
   }
 
+  const options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const imageUrl = node.data.target.fields.file.url;
+        return <CardMedia component="img" image={imageUrl} alt="Embedded Image" sx={{ width: '100%', height: 'auto', margin: '20px auto' }} />;
+      }
+    }
+  };
+
   return (
-    <div>
-       <Helmet>
-        <title>{project.name} - Tech Rebel</title>
+    <>
+      <Helmet>
+      <title>{project.name} - Tech Rebel</title>
         <meta name="description" content={`Project by ${project.stakeholder}`} />
         <meta property="og:title" content={project.name} />
         <meta property="og:description" content={`Project by ${project.stakeholder}`} />
         <meta property="og:url" content={`https://techrebel.com/project/${project.id}`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-        <Navbar />
-    <div className="project-container">
-      <h1 className="project-title">{project.name}</h1>
-      <p><strong>Stakeholder:</strong> {project.stakeholder}</p>
-      <p><strong>Timeframe:</strong> {project.timeframe}</p>
-      <p><strong>Tech Stack:</strong> {project.techStack.join(', ')}</p>
-      {project.projectImage && <img className="project-image" src={project.projectImage.fields.file.url} alt={project.name} />}
-      <div className="project-details">
-        {documentToReactComponents(project.fullDetails)}
-      </div>
-      {project.relatedProjects && project.relatedProjects.length > 0 && (
-        <div className="related-projects">
-          <h2>Related Projects:</h2>
-          <ul>
-            {project.relatedProjects.map(related => (
-              <li key={related.sys.id} className="related-project">
-                <a href={`/project/${related.sys.id}`} className="related-project-link">{related.fields.name}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-    <BackButton text="Back" onClick={() => window.history.back()} />
-    
-    </div>
+      <Navbar />
+      <Container sx={{ my: 4 }}>
+        <Typography variant="h2" sx={{ color: '#FF6000', mb: 2 }}>{project.name}</Typography>
+        
+        <Typography variant="body1"><strong>Stakeholder:</strong> {project.stakeholder}</Typography>
+        <Typography variant="body1"><strong>Timeframe:</strong> {project.timeframe}</Typography>
+        <Typography variant="body1"><strong>Tech Stack:</strong> {project.techStack.join(', ')}</Typography>
+        
+        {project.projectImage && 
+          <Card sx={{ maxWidth: '100%', boxShadow: 'none', mb: 2 }}>
+            <CardMedia
+              component="img"
+              image={project.projectImage.fields.file.url}
+              alt={project.name}
+              sx={{ maxHeight: 500, width: '100%', maxWidth: '100%', margin: 'auto' }}
+            />
+          </Card>
+        }
+
+        <Box sx={{ my: 4, paddingBottom: '3rem' }}>
+          {documentToReactComponents(project.fullDetails, options)}
+        </Box>
+
+
+        <BackButton text="Back" onClick={() => window.history.back()} sx={{ mt: 4 }} />
+      </Container>
+    </>
   );
 };
 

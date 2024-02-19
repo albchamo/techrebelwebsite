@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import "./AboutUs.css"
 import client from '../services/contenful';
 import HeroSection from '../components/HeroSection';
 import WhoWeServeSection from '../components/WhoWeServeSection';
@@ -11,7 +10,7 @@ import AuthorCard from '../components/AuthorCard';
 import BackButton from '../components/BackButton';
 import Navbar from '../components/Navbar';
 import { useLocale } from '../components/LocaleContext';
-import { Typography, Grid, Button, Container } from '@mui/material';
+import { Typography, Grid, Box,  Button, Container } from '@mui/material';
 
 
 
@@ -63,11 +62,17 @@ const AboutUs = () => {
         <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}> 
          {pageContent.whoWeAre}
          </Typography>
-        <div className="authors-section">
+         <Box sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column', sm: 'row' },
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        paddingBottom: '10vh'
+      }}>
         {authorNames.map(name => (
           <AuthorCard key={name} authorName={name} />
         ))}
-          </div>
+      </Box>
           <BackButton text="Back" onClick={() => window.history.back()} />
           </Container>
   );

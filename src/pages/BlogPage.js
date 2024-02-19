@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import client from '../services/contenful';
-import './BlogPage.css'; // Consider using CSS modules or styled-components for consistent styling
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Container, Grid, Card, CardContent, CardActionArea, Paper,  Typography, Select, MenuItem, FormControl, InputLabel, Box } from '@mui/material';
 import Navbar from '../components/Navbar';
-import BackButton from '../components/BackButton';
+import BackButton from '../components/BackButton'; // Assume this is also refactored to MUI
+import CategoryFilter from '../components/CategoryFilter'; // Consider refactoring this as well
 import { useLocale } from '../components/LocaleContext';
-import CategoryFilter from '../components/CategoryFilter';
-
-
-
 
 function BlogPage() {
   const [posts, setPosts] = useState([]);
@@ -16,17 +13,13 @@ function BlogPage() {
   const [selectedAuthor, setSelectedAuthor] = useState('');
   const { locale } = useLocale();
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const categories = [ 'General', 'News', 'Research']; // Replace with your actual categories
-
-
+  const categories = ['General', 'News', 'Research'];
 
   useEffect(() => {
     client.getEntries({ content_type: 'pageBlogPost', locale: locale })
       .then((response) => {
         const sortedPosts = response.items.sort((a, b) => new Date(b.sys.createdAt) - new Date(a.sys.createdAt));
         setPosts(sortedPosts);
-
-
         setLoading(false);
       })
       .catch(error => {
@@ -40,11 +33,9 @@ function BlogPage() {
   };
 
   const handleCategorySelect = (category) => {
-    console.log("Selected Category:", category);
     setSelectedCategory(category);
   };
 
-  //const filteredPosts = selectedAuthor ? posts.filter(post => post.fields.author.fields.name === selectedAuthor) : posts;
   let filteredPosts = posts;
   if (selectedAuthor) {
     filteredPosts = filteredPosts.filter(post => post.fields.author.fields.name === selectedAuthor);
@@ -53,35 +44,49 @@ function BlogPage() {
     filteredPosts = filteredPosts.filter(post => 
       post.fields.category.some(cat => cat.fields.name === selectedCategory)
     );
-    console.log("Filtered Posts:", filteredPosts); // Log the final filtered posts
   }
+
   return (
-    <div>
+    <Container sx={{ paddingBottom: '5rem' }}>
       <Navbar />
-      <div className="category-filter-wrapper">
-    <CategoryFilter categories={categories} onCategorySelect={handleCategorySelect} />
-</div>
-      <div className="author-filter">
-        <label>Filter by Author:</label>
-        <select onChange={handleAuthorChange}>
-          <option value="">All Authors</option>
+      <Box sx={{ my: 2 }}>
+        <CategoryFilter categories={categories} onCategorySelect={handleCategorySelect} />
+      </Box>
+      <FormControl fullWidth sx={{ my: 2 }}>
+        <InputLabel id="author-select-label">Filter by Author</InputLabel>
+        <Select
+          labelId="author-select-label"
+          value={selectedAuthor}
+          label="Filter by Author"
+          onChange={handleAuthorChange}
+        >
+          <MenuItem value="">All Authors</MenuItem>
           {[...new Set(posts.map(post => post.fields.author.fields.name))].map(author => (
-            <option key={author} value={author}>{author}</option>
+            <MenuItem key={author} value={author}>{author}</MenuItem>
           ))}
-        </select>
-      </div>
-      <div className="blog-container">
+        </Select>
+      </FormControl>
+      <Grid container spacing={2} sx={{ my: 2 }}>
         {filteredPosts.map(post => (
-          <Link to={`/post/${post.fields.slug}`} key={post.sys.id}>
-            <div className="blog-post">
-              <div className="blog-title">{post.fields.title}</div>
-              <div className="blog-author">{post.fields.author.fields.name}</div>
-            </div>
-          </Link>
+          <Grid item xs={12} md={6} key={post.sys.id}>
+            <Paper elevation={3} sx={{ marginBottom: 1 }}>
+             <Card component={RouterLink} to={`/post/${post.fields.slug}`} sx={{ textDecoration: 'none' }}>              
+              <CardActionArea>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {post.fields.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {post.fields.author.fields.name}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              </Card>
+</Paper>          </Grid>
         ))}
-      </div>
+      </Grid>
       <BackButton text="Back" onClick={() => window.history.back()} />
-    </div>
+    </Container>
   );
 }
 
