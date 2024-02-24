@@ -36,29 +36,32 @@ const AboutUs = () => {
     // Display a loading state until the content is fetched
     return <p>Loading...</p>;
   }
+  const whyText = pageContent.whyText.split('\n').map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+ ));
 
   return (
     <Container>
       <Navbar/> 
 
-        <Typography variant="h1" sx={{ fontSize: '15vw', textAlign: 'center' }}>{pageContent.title}</Typography>
         <HeroSection content={pageContent.heroSection} />  
+
+        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center', pb: '10vh' }}> 
+        {pageContent.whyChooseUsTitle}
+        </Typography>
+
+        <Typography variant = 'body1' sx={{ padding: '0px 10vw'}}> {whyText} </Typography>
+
+        <ValuePropsSection content={pageContent.valueProps} />
+
         <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
           {pageContent.whoWeServeTitle}
         </Typography>
         <WhoWeServeSection content={pageContent.whoWeServes} />
-        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
-           {pageContent.ourServicesTitle}
-        </Typography>
-        <OurServicesSection content={pageContent.ourServices} />
-        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
-           {pageContent.ourFramework}
-        </Typography>
-        <FrameworkSection content={pageContent.framework} />
-        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}> 
-        {pageContent.whyChooseUsTitle}
-        </Typography>
-        <ValuePropsSection content={pageContent.valueProps} />
+
         <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}> 
          {pageContent.whoWeAre}
          </Typography>
@@ -80,3 +83,13 @@ const AboutUs = () => {
 
 export default AboutUs;
 
+//        <Typography variant="h1" sx={{ fontSize: '15vw', textAlign: 'center' }}>{pageContent.title}</Typography>
+
+//<Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
+ //          {pageContent.ourServicesTitle}
+ //       </Typography>
+//        <OurServicesSection content={pageContent.ourServices} />
+//        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
+//           {pageContent.ourFramework}
+//        </Typography>
+//        <FrameworkSection content={pageContent.framework} />

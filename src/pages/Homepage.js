@@ -28,7 +28,7 @@ const Homepage = () => {
     </div>
     <div className="secondary-square-container">
         <Link to="/about" className="secondary-square">
-            <h2 className='home-h2'>About Us</h2>
+            <h2 className='home-h2'>About</h2>
         </Link>
         <Link to="/projects" className="secondary-square">
             <h2 className='home-h2'>Projects</h2>

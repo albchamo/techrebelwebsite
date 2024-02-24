@@ -1,30 +1,39 @@
-import React from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Card, Typography, Box, Accordion, AccordionDetails } from '@mui/material';
 
 const ServiceCard = ({ content }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleAccordionChange = () => {
+    setExpanded(!expanded);
+  };
+
+  // Handling text with line breaks
+  const formattedText = content.text.split('\n').map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+  ));
+
   return (
-    <Card sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-      ':hover': {
-        transform: 'translateY(-5px)',
-        boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)',
-      },
-    }}>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h3" sx={{ textAlign: 'center', marginBottom: '15px' }}>
-          {content.title}
+    <Accordion expanded={expanded} onChange={handleAccordionChange} sx={{ maxWidth: 345, margin: 'auto', mt: 2, boxShadow: 3, '&:before': { display: 'none' }, '&.Mui-expanded': { margin: 'auto' } }}>
+      <Card sx={{ width: '100%', boxShadow: 'none' }}>
+        <Box sx={{ padding: '16px', cursor: 'pointer' }} onClick={handleAccordionChange}>
+          <Typography gutterBottom variant="h5" component="h3">
+            {content.title}
+          </Typography>
+          <Typography variant="body1" component="div">
+            {formattedText}
+          </Typography>
+        </Box>
+      </Card>
+      <AccordionDetails>
+        <Typography>
+          {content.description}
         </Typography>
-        <Typography variant="body1" component="p" sx={{ textAlign: 'center' }}>
-          {content.text}
-        </Typography>
-      </CardContent>
-    </Card>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 

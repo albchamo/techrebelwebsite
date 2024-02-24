@@ -55,7 +55,7 @@ const SingleProjectPage = () => {
         
         <Typography variant="body1"><strong>Stakeholder:</strong> {project.stakeholder}</Typography>
         <Typography variant="body1"><strong>Timeframe:</strong> {project.timeframe}</Typography>
-        <Typography variant="body1"><strong>Tech Stack:</strong> {project.techStack.join(', ')}</Typography>
+        <Typography variant="body1"><strong>Services Provided:</strong> {project.techStack.join(', ')}</Typography>
         
         {project.projectImage && 
           <Card sx={{ maxWidth: '100%', boxShadow: 'none', mb: 2 }}>
