@@ -53,7 +53,7 @@ const AboutUs = () => {
         {pageContent.whyChooseUsTitle}
         </Typography>
 
-        <Typography variant = 'body1' sx={{ padding: '0px 10vw'}}> {whyText} </Typography>
+        <Typography variant = 'body1' sx={{ padding: { xs: '0px 5vw', md: '0px 10vw' } }}> {whyText} </Typography>
 
         <ValuePropsSection content={pageContent.valueProps} />
 
