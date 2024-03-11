@@ -49,18 +49,20 @@ const AboutUs = () => {
 
         <HeroSection content={pageContent.heroSection} />  
 
-        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center', pb: '10vh' }}> 
-        {pageContent.whyChooseUsTitle}
-        </Typography>
 
         <Typography variant = 'body1' sx={{ padding: { xs: '0px 5vw', md: '0px 10vw' } }}> {whyText} </Typography>
 
-        <ValuePropsSection content={pageContent.valueProps} />
 
-        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
+        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center', pt: '10vh' }}>
           {pageContent.whoWeServeTitle}
         </Typography>
-        <WhoWeServeSection content={pageContent.whoWeServes} />
+        <OurServicesSection content={pageContent.ourServices} />
+
+        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center', pb: '10vh' }}> 
+        {pageContent.whyChooseUsTitle}
+        </Typography>
+        <ValuePropsSection content={pageContent.valueProps} />
+
 
         <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}> 
          {pageContent.whoWeAre}
@@ -88,7 +90,8 @@ export default AboutUs;
 //<Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
  //          {pageContent.ourServicesTitle}
  //       </Typography>
-//        <OurServicesSection content={pageContent.ourServices} />
+//                <WhoWeServeSection content={pageContent.whoWeServes} />
+
 //        <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center' }}>
 //           {pageContent.ourFramework}
 //        </Typography>
