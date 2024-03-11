@@ -77,7 +77,7 @@
 .form-side textarea {
     padding: 10px; /* Padding inside input fields */
     background: white; /* No background to let orange color show through */
-    color: white; /* White text inside inputs for contrast */
+    color: rgb(0, 0, 0); /* White text inside inputs for contrast */
 }
 
 .form-side button {
