@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import client from '../services/contenful';
 import HeroSection from '../components/HeroSection';
-import WhoWeServeSection from '../components/WhoWeServeSection';
 import OurServicesSection from '../components/OurServicesSection';
-import FrameworkSection from '../components/FrameworkSection';
 import ValuePropsSection from '../components/ValuePropsSection';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import AuthorCard from '../components/AuthorCard';
@@ -36,12 +34,10 @@ const AboutUs = () => {
     // Display a loading state until the content is fetched
     return <p>Loading...</p>;
   }
-  const whyText = pageContent.whyText.split('\n').map((line, index) => (
-    <React.Fragment key={index}>
-      {line}
-      <br />
-    </React.Fragment>
- ));
+
+
+ const aboutIntroContent = pageContent.aboutIntro ? documentToReactComponents(pageContent.aboutIntro) : null;
+
 
   return (
     <Container>
@@ -49,12 +45,15 @@ const AboutUs = () => {
 
         <HeroSection content={pageContent.heroSection} />  
 
+      {/* Render aboutIntro as rich text instead of whyText */}
+      <Box sx={{ whiteSpace: 'pre-wrap', padding: { xs: '0px 5vw', md: '0px 12vw' } }}>
+        {aboutIntroContent}
+      </Box>
 
-        <Typography variant = 'body1' sx={{ padding: { xs: '0px 5vw', md: '0px 10vw' } }}> {whyText} </Typography>
 
 
         <Typography variant="h3" component="h3" sx={{ fontSize: { xs: '5vh', md: '10vh' }, fontWeight: '600', textAlign: 'center', pt: '10vh' }}>
-          {pageContent.whoWeServeTitle}
+          {pageContent.ourServicesTitle}
         </Typography>
         <OurServicesSection content={pageContent.ourServices} />
 
@@ -96,3 +95,4 @@ export default AboutUs;
 //           {pageContent.ourFramework}
 //        </Typography>
 //        <FrameworkSection content={pageContent.framework} />
+//        <Typography variant = 'body1' sx={{ padding: { xs: '0px 5vw', md: '0px 10vw' } }}> {whyText} </Typography>
