@@ -50,7 +50,10 @@ const SingleProjectPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <Navbar />
-      <Container sx={{ my: 4 }}>
+      <Container sx={{ my: 4, maxWidth: {
+          xs: '90vw', // max-width 90% on extra-small (and smaller) screens
+          md: '80vw'  // max-width 80% on medium (and larger) screens
+        } }}>
         <Typography variant="h2" sx={{ color: '#FF6000', mb: 2 }}>{project.name}</Typography>
         
         <Typography variant="body1"><strong>Stakeholder:</strong> {project.stakeholder}</Typography>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ProjectCard from '../components/ProjectCard'; // Make sure this is using MUI
 import Navbar from '../components/Navbar';
-import SocialLinks from '../components/SocialLinks'; // Adapt this to MUI as well
 import client from '../services/contenful';
 import { useLocale } from '../components/LocaleContext';
 import BackButton from '../components/BackButton'; // Assume this is adapted to MUI
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -25,11 +24,12 @@ const ProjectsPage = () => {
     <>
       <Navbar />
       <Container sx={{ my: 4 }}>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} justifyContent="center"> {/* Adjusted to center the cards */}
           {projects.map((project) => (
-            project.fields ? <Grid item xs={12} sm={12} md={12} key={project.sys.id}>
-              <ProjectCard id={project.sys.id} project={project.fields} />
-            </Grid> : null
+            project.fields ? 
+              <Grid item xs={12} sm={12} md={12} key={project.sys.id} sx={{ display: 'flex', justifyContent: 'center' }}> {/* Ensures cards are centered */}
+                <ProjectCard id={project.sys.id} project={project.fields} />
+              </Grid> : null
           ))}
         </Grid>
       </Container>
