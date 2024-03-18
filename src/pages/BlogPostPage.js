@@ -69,7 +69,7 @@ function BlogPostPage() {
             <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
             <Navbar />
-            <Container>
+            <Container sx={{ maxWidth: { md: '720px' } }}>
             <Typography variant="h2" sx={{ color: '#FF6000', marginBottom: 2, fontSize: { xs: '1.5rem', md: '3rem' } }}>
                 {post.title}
             </Typography>
@@ -104,9 +104,10 @@ function BlogPostPage() {
                     />
                 </Card>
                 
-                <Box sx={{ my: 4 , paddingBottom: '5rem'}}>
-                    {documentToReactComponents(post.content, options)}
+                <Box sx={{ my: 4, paddingBottom: '5rem', '& p': { fontSize: '1.25rem' }, '& h1': { fontSize: '2.25rem' }, '& h2': { fontSize: '2rem' }, '& h3': { fontSize: '1.75rem' } }}>
+                {documentToReactComponents(post.content, options)}
                 </Box>
+
                 
                 {/* Related Posts */}
                 
