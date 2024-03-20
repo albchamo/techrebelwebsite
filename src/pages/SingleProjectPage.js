@@ -52,7 +52,7 @@ const SingleProjectPage = () => {
       <Navbar />
       <Container sx={{ my: 4, maxWidth: {
           xs: '90vw', // max-width 90% on extra-small (and smaller) screens
-          md: '80vw'  // max-width 80% on medium (and larger) screens
+          md: '720px'  // max-width 80% on medium (and larger) screens
         } }}>
         <Typography variant="h2" sx={{ color: '#FF6000', mb: 2 }}>{project.name}</Typography>
         
@@ -71,7 +71,7 @@ const SingleProjectPage = () => {
           </Card>
         }
 
-        <Box sx={{ my: 4, paddingBottom: '3rem' }}>
+<Box sx={{ my: 4, paddingBottom: '5rem', '& p': { fontSize: '1.25rem' }, '& h1': { fontSize: '2.25rem' }, '& h2': { fontSize: '2rem' }, '& h3': { fontSize: '1.75rem' } }}>
           {documentToReactComponents(project.fullDetails, options)}
         </Box>
 
